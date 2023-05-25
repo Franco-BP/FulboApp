@@ -1,4 +1,4 @@
-package fulboapp.entities;
+package fulboapp.model;
 
 import lombok.Data;
 

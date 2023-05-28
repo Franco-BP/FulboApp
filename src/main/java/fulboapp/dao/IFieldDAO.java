@@ -2,10 +2,6 @@ package fulboapp.dao;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Franco Bascialla
- */
 public interface IFieldDAO {
 
 	/**

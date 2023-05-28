@@ -3,10 +3,6 @@ package fulboapp.dao.impl;
 import fulboapp.dao.IFieldDAO;
 import java.util.ArrayList;
 
-/**
- *
- * @author Franco Bascialla
- */
 public class FieldDAOImpl implements IFieldDAO {
 
     @Override

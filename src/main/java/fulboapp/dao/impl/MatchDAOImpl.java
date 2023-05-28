@@ -1,42 +1,45 @@
 package fulboapp.dao.impl;
 
 import fulboapp.dao.IMatchDAO;
-import java.util.ArrayList;
+import fulboapp.dto.MatchDTO;
+import java.util.List;
 
-/**
- *
- * @author Franco Bascialla
- */
 public class MatchDAOImpl implements IMatchDAO {
 
-    @Override
-    public IMatchDAO findMatch(String matchID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public void addMatch(MatchDTO match) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void addMatch(IMatchDAO match) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public void removeMatch(MatchDTO match) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void removeMatch(IMatchDAO match) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public void updateMatch(MatchDTO match) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void updateMatch(IMatchDAO match) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public MatchDTO findMatch(String matchID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public ArrayList<IMatchDAO> findAll(boolean avoidFulls) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public List<MatchDTO> findAll(boolean avoidFulls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public ArrayList<IMatchDAO> findMatchesByDate(String date, boolean avoidFulls) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public List<MatchDTO> findMatchesByDate(String date, boolean avoidFulls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }

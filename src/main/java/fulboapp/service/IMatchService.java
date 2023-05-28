@@ -14,7 +14,7 @@ public interface IMatchService {
 	 * @param matchId id del partido a chequear.
 	 * @return null si esta lleno, true si tiene cupos.
 	 */
-	public Boolean getAvailability(String matchId);
+	public Boolean getAvailability(Long matchId);
 	
 	/**
 	 * Metodo para chequear la disponibilidad de cupos para un jugador particular.
@@ -22,7 +22,7 @@ public interface IMatchService {
 	 * @param userId id del jugador a chequear.
 	 * @return null si esta lleno, false si el jugador esta repetido y true si tiene cupos.
 	 */
-	public Boolean getAvailability(String matchId, String userId);
+	public Boolean getAvailability(Long matchId, Long userId);
 	
 	/**
 	 * Metodo para obtener todos los partidos.
@@ -32,38 +32,38 @@ public interface IMatchService {
 	
 	/**
 	 * Metodo para obtener un partido.
-	 * @param matchId - String con el id del partido.
+	 * @param matchId - Long con el id del partido.
 	 * @return MatchDTO - null si no hay coincidencias.
 	 */
-	public MatchDTO getMatch(String matchId);
+	public MatchDTO getMatch(Long matchId);
 	
 	/**
 	 * Metodo para eliminar un partido
-	 * @param matchId - String con el id del partido.
+	 * @param matchId - Long con el id del partido.
 	 */
-	public void deleteMatch(String matchId);
+	public void deleteMatch(Long matchId);
 	
 	// No estoy seguro de que sea necesario el update como servicio. 
-	public void updateMatch(String matchId);
+	public void updateMatch(Long matchId);
 	
 	/**
 	 * Metodo para agregar un jugador al partido.
 	 * @param matchId id del partido.
 	 * @param userId id del jugador.
 	 */
-	public void addPlayer(String matchId, String userId);
+	public void addPlayer(Long matchId, Long userId);
 	
 	/**
 	 * Metodo para eliminar un jugador de un partido.
 	 * @param matchId id del partido.
 	 * @param userId id del jugador
 	 */
-	public void deletePlayer(String matchId, String userId);
+	public void deletePlayer(Long matchId, Long userId);
 	
 	/**
 	 * Metodo para setear la fecha del partido.
 	 * @param matchId id del partido.
 	 * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23) 
 	 */
-	public Boolean setDate(String matchId, String date);
+	public Boolean setDate(Long matchId, String date);
 }

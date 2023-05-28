@@ -1,6 +1,8 @@
 package fulboapp.dao;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import fulboapp.dto.FieldDTO;
 
 public interface IFieldDAO {
 
@@ -8,43 +10,43 @@ public interface IFieldDAO {
 	 * Busca una cancha con el ID ingresado.
 	 *
 	 * @param fieldID ID de la cancha.
-	 * @return objeto IFieldDAO o null si no hay coincidencias.
+	 * @return objeto FieldDTO o null si no hay coincidencias.
 	 */
-	public IFieldDAO findField(String fieldID);
+	public FieldDTO findField(Long fieldID);
 
 	/**
 	 * Busca todas las canchas de la base de datos.
 	 * 
-	 * @return ArrayList<IFieldDAO> con las canchas encontradas.
+	 * @return List<FieldDTO> con las canchas encontradas.
 	 */
-	public ArrayList<IFieldDAO> findAll();
+	public List<FieldDTO> findAll();
 
 	/**
 	 * Busca todas las canchas que tengan el ingreso como parte de su ubicacion.
 	 * 
 	 * @param location ciudad o departamento.
-	 * @return ArrayList<IFieldDAO> con las canchas que coincidan.
+	 * @return List<FieldDTO> con las canchas que coincidan.
 	 */
-	public ArrayList<IFieldDAO> findByLocation(String location);
+	public List<FieldDTO> findByLocation(String location);
 
 	/**
 	 * Agrega una cancha a la base de datos.
 	 *
 	 * @param field Objeto a agregar.
 	 */
-	public void addField(IFieldDAO field);
+	public void addField(FieldDTO field);
 
 	/**
 	 * Elimina una cancha existente de la base de datos.
 	 *
 	 * @param field Objeto a actualizar.
 	 */
-	public void removeField(IFieldDAO field);
+	public void removeField(FieldDTO field);
 
 	/**
 	 * Actualiza una cancha en la base de datos.
 	 *
 	 * @param field Objeto a eliminar.
 	 */
-	public void updateField(IFieldDAO field);
+	public void updateField(FieldDTO field);
 }

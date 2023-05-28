@@ -29,10 +29,10 @@ public interface IMatchDAO {
 	/**
 	 * Busca el partido con el ID ingresado.
 	 *
-	 * @param matchID - String del ID.
+	 * @param matchID - Long del ID.
 	 * @return objeto MatchDTO o null si no hay coincidencias.
 	 */
-	public MatchDTO findMatch(String matchID);
+	public MatchDTO findMatch(Long matchID);
 
 	/**
 	 * Busca los partidos guardados.

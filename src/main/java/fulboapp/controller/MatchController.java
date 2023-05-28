@@ -1,14 +1,16 @@
 package fulboapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-// import fulboapp.dto.MatchDTO;
+import fulboapp.dto.MatchDTO;
 import fulboapp.service.IMatchService;
 
 @RestController
@@ -19,12 +21,16 @@ public class MatchController {
 
 	// No se que se pone en el GetMapping. Por lo que encontre,
 	// es algo vinculado a la url donde se ubica el metodo.
-	//
-	// Por lo que encontre, el RequestBody se usa solo para objetos,
-	// no para Strings.
+	
+	// Por lo que encontre, el RequestBody toma los datos del Json. No se si
+	// es necesario usarlo en Strings, pero supongo que Long y Boolean si 
+	// pues no son primitivas.
+
+	// No se si RequestBody es necesario ponerlo a todos los parametros, no se si es
+	// especifico de la variable o del ingreso (osea: ponerlo 1 o 2 veces si hay 2 parametros).
 
 	@GetMapping("/getAvailability")
-	public Boolean getAvailability(String matchId) {
+	public Boolean getAvailability(@RequestBody Long matchId) {
 		return iMatchService.getAvailability(matchId);
 	}
 
@@ -37,8 +43,31 @@ public class MatchController {
 	 *         cupos.
 	 */
 	@GetMapping("/getAvailability")
-	public Boolean getAvailability(String matchId, String userId) {
+	public Boolean getAvailability(@RequestBody Long matchId, @RequestBody Long userId) {
 		return iMatchService.getAvailability(matchId, userId);
+	}
+	
+	/**
+	 * Metodo para obtener todos los partidos.
+	 * @param avoidFulls - True si se desea evitar los partidos ya completos.
+	 * @return List<MatchDTO> - Lista de los partidos encontrados.
+	 */
+	@GetMapping("/getListAllMatches")
+	public List<MatchDTO> getListAllMatches(@RequestBody Boolean avoidFulls) {
+		return iMatchService.getListAllMatches(avoidFulls);
+	}
+	
+	/**
+	 * Metodo para obtener un partido particular.
+	 * @param matchId - Long con el id del partido. 
+	 * @return MatchDTO o null si no hay coincidencias.
+	 */
+	public MatchDTO getMatch(@RequestBody Long matchId) {
+		return iMatchService.getMatch(matchId);
+	}
+	
+	public void deleteMatch(@RequestBody Long matchId) {
+		iMatchService.deleteMatch(matchId);
 	}
 
 	/**
@@ -48,7 +77,7 @@ public class MatchController {
 	 * @param userId  id del jugador.
 	 */
 	@PostMapping("/addPlayer")
-	public void addPlayer(String matchId, String userId) {
+	public void addPlayer(@RequestBody Long matchId, @RequestBody Long userId) {
 		iMatchService.addPlayer(matchId, userId);
 	}
 
@@ -59,13 +88,13 @@ public class MatchController {
 	 * @param userId  id del jugador
 	 */
 	@DeleteMapping("/deletePlayer")
-	public void deletePlayer(String matchId, String userId) {
+	public void deletePlayer(@RequestBody Long matchId, @RequestBody Long userId) {
 		iMatchService.deletePlayer(matchId, userId);
 	}
 
 	// No estoy seguro de que sea necesario el update como servicio.
 	@PutMapping("/updatePlayers")
-	public void updateMatch(String matchId) {
+	public void updateMatch(@RequestBody Long matchId) {
 		iMatchService.updateMatch(matchId);
 	}
 
@@ -77,7 +106,7 @@ public class MatchController {
 	 *                (1->23)
 	 */
 	@PostMapping("/setDate")
-	public Boolean setDate(String matchId, String date) {
+	public Boolean setDate(@RequestBody Long matchId, @RequestBody String date) {
 		return iMatchService.setDate(matchId, date);
 	}
 }

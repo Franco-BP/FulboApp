@@ -11,7 +11,7 @@ public interface IUserDAO {
 	 * @param userID ID del usuario.
 	 * @return objeto IUserDAO o null si no hay coincidencias.
 	 */
-	public UserDTO findUser(String userID);
+	public UserDTO findUser(Long userId);
 
 	/**
 	 * Busca todos los usuarios de la base de datos.

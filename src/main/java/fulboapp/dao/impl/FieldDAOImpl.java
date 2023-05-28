@@ -1,38 +1,45 @@
 package fulboapp.dao.impl;
 
 import fulboapp.dao.IFieldDAO;
-import java.util.ArrayList;
+import fulboapp.dto.FieldDTO;
+
+import java.util.List;
 
 public class FieldDAOImpl implements IFieldDAO {
 
-    @Override
-    public IFieldDAO findField(String fieldID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public FieldDTO findField(Long fieldID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public ArrayList<IFieldDAO> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public List<FieldDTO> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public ArrayList<IFieldDAO> findByLocation(String location) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public List<FieldDTO> findByLocation(String location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public void addField(IFieldDAO field) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public void addField(FieldDTO field) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void removeField(IFieldDAO field) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+	@Override
+	public void removeField(FieldDTO field) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Override
-    public void updateField(IFieldDAO field) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+	@Override
+	public void updateField(FieldDTO field) {
+		// TODO Auto-generated method stub
+		
+	}
 }

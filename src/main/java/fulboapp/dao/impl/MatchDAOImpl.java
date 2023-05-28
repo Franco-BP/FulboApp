@@ -25,7 +25,7 @@ public class MatchDAOImpl implements IMatchDAO {
 	}
 
 	@Override
-	public MatchDTO findMatch(String matchID) {
+	public MatchDTO findMatch(Long matchID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,5 +41,5 @@ public class MatchDAOImpl implements IMatchDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+	
 }

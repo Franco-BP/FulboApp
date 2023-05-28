@@ -2,13 +2,14 @@ package fulboapp.dao.impl;
 
 import java.util.Arrays;
 import java.util.List;
+
 import fulboapp.dao.IUserDAO;
 import fulboapp.dto.UserDTO;
 
 public class UserDAOImpl implements IUserDAO {
 
 	@Override
-	public UserDTO findUser(String userID) {
+	public UserDTO findUser(Long userID) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 

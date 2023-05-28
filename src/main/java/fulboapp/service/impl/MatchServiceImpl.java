@@ -20,7 +20,7 @@ public class MatchServiceImpl implements IMatchService {
 	private static final Integer MAX_PLAYERS = 10;
 
 	@Override
-	public Boolean getAvailability(String matchId) {
+	public Boolean getAvailability(Long matchId) {
 //		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
 //		
 //		if (matchDTO.playersInMatch.size() >= MAX_PLAYERS) {
@@ -38,7 +38,7 @@ public class MatchServiceImpl implements IMatchService {
 	 */
 	
 	@Override
-	public Boolean getAvailability(String matchId, String userId) {
+	public Boolean getAvailability(Long matchId, Long userId) {
 //		IUserDAO iUserDAO = new UserDAOImpl();
 //		
 //		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
@@ -61,12 +61,12 @@ public class MatchServiceImpl implements IMatchService {
 	}
 	
 	@Override
-	public MatchDTO getMatch(String matchId) {
+	public MatchDTO getMatch(Long matchId) {
 		return iMatchDAO.findMatch(matchId);
 	}
 	
 	@Override
-	public void deleteMatch(String matchId) {
+	public void deleteMatch(Long matchId) {
 		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
 		if (matchDTO != null) {
 			iMatchDAO.removeMatch(matchDTO);
@@ -74,13 +74,13 @@ public class MatchServiceImpl implements IMatchService {
 	}
 	
 	@Override
-	public void updateMatch(String matchId) {
+	public void updateMatch(Long matchId) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void addPlayer(String matchId, String userId) {
+	public void addPlayer(Long matchId, Long userId) {
 //		IUserDAO iUserDAO = new UserDAOImpl();
 //		
 //		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
@@ -93,7 +93,7 @@ public class MatchServiceImpl implements IMatchService {
 	}
 
 	@Override
-	public void deletePlayer(String matchId, String userId) {
+	public void deletePlayer(Long matchId, Long userId) {
 // 		IUserDAO iUserDAO = new UserDAOImpl();
 //		
 //		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
@@ -103,7 +103,7 @@ public class MatchServiceImpl implements IMatchService {
 	}
 
 	@Override
-	public Boolean setDate(String matchId, String date) {
+	public Boolean setDate(Long matchId, String date) {
 		// TODO Auto-generated method stub
 		return null;
 	}

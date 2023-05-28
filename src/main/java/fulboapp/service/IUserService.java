@@ -5,8 +5,6 @@ import fulboapp.dto.UserDTO;
 
 public interface IUserService {
 
-  public List<UserDTO> getListAllUser();
-  
-  
+	public List<UserDTO> getListAllUser();
 
 }

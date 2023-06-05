@@ -28,7 +28,6 @@ public class MatchDAOImpl implements IMatchDAO {
     matchDTO2.setMatchCreator(userDTO);
     matchDTO2.setMatchDate(new Date());
 
-
     MatchDTO matchDTO3 = new MatchDTO();
     matchDTO3.setId(Long.valueOf(3));
     matchDTO3.setMatchCreator(userDTO);

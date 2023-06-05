@@ -1,13 +1,13 @@
 package com.fulboapp.controller;
 
+import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fulboapp.dto.MatchDTO;
 import com.fulboapp.service.IMatchService;
@@ -110,7 +110,7 @@ public class MatchController {
    * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23)
    */
   @PostMapping("/setDate")
-  public Boolean setDate(@RequestBody Long matchId, @RequestBody String date) {
+  public Boolean setDate(@RequestBody Long matchId, @RequestBody Date date) {
     return iMatchService.setDate(matchId, date);
   }
 }

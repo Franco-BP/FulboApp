@@ -1,5 +1,6 @@
 package com.fulboapp.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,7 +100,7 @@ public class MatchServiceImpl implements IMatchService {
   }
 
   @Override
-  public Boolean setDate(Long matchId, String date) {
+  public Boolean setDate(Long matchId, Date date) {
     // TODO Auto-generated method stub
     return null;
   }

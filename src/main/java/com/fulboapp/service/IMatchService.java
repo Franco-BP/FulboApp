@@ -1,5 +1,6 @@
 package com.fulboapp.service;
 
+import java.util.Date;
 import java.util.List;
 import com.fulboapp.dto.MatchDTO;
 
@@ -64,5 +65,5 @@ public interface IMatchService {
 	 * @param matchId id del partido.
 	 * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23) 
 	 */
-	public Boolean setDate(Long matchId, String date);
+	public Boolean setDate(Long matchId, Date date);
 }

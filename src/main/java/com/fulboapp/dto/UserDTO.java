@@ -1,4 +1,4 @@
-package fulboapp.dto;
+package com.fulboapp.dto;
 
 import java.io.Serializable;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package fulboapp.controller;
+package com.fulboapp.controller;
 
 import java.util.List;
 
@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import fulboapp.dto.UserDTO;
-import fulboapp.service.IUserService;
+import com.fulboapp.dto.UserDTO;
+import com.fulboapp.service.IUserService;
 
 @RestController
 public class UserController {

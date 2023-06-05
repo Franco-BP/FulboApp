@@ -1,7 +1,7 @@
-package fulboapp.dao;
+package com.fulboapp.dao;
 
 import java.util.List;
-import fulboapp.dto.MatchDTO;
+import com.fulboapp.dto.MatchDTO;
 
 public interface IMatchDAO {	
 

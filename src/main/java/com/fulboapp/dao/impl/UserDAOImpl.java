@@ -1,11 +1,12 @@
-package fulboapp.dao.impl;
+package com.fulboapp.dao.impl;
 
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.fulboapp.dao.IUserDAO;
+import com.fulboapp.dto.UserDTO;
 
-import fulboapp.dao.IUserDAO;
-import fulboapp.dto.UserDTO;
-
+@Repository
 public class UserDAOImpl implements IUserDAO {
 
 	@Override

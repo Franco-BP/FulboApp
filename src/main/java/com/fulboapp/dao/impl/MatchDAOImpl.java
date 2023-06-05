@@ -1,9 +1,11 @@
-package fulboapp.dao.impl;
+package com.fulboapp.dao.impl;
 
-import fulboapp.dao.IMatchDAO;
-import fulboapp.dto.MatchDTO;
 import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.fulboapp.dao.IMatchDAO;
+import com.fulboapp.dto.MatchDTO;
 
+@Repository
 public class MatchDAOImpl implements IMatchDAO {
 
 	@Override

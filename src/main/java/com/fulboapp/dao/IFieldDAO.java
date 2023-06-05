@@ -1,8 +1,7 @@
-package fulboapp.dao;
+package com.fulboapp.dao;
 
 import java.util.List;
-
-import fulboapp.dto.FieldDTO;
+import com.fulboapp.dto.FieldDTO;
 
 public interface IFieldDAO {
 

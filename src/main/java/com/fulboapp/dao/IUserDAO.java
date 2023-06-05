@@ -1,7 +1,7 @@
-package fulboapp.dao;
+package com.fulboapp.dao;
 
 import java.util.List;
-import fulboapp.dto.UserDTO;
+import com.fulboapp.dto.UserDTO;
 
 public interface IUserDAO {
 

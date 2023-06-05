@@ -1,11 +1,11 @@
-package fulboapp.service.impl;
+package com.fulboapp.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import fulboapp.dao.IUserDAO;
-import fulboapp.dto.UserDTO;
-import fulboapp.service.IUserService;
+import com.fulboapp.dao.IUserDAO;
+import com.fulboapp.dto.UserDTO;
+import com.fulboapp.service.IUserService;
 
 @Service
 public class UserServiceImpl implements IUserService {

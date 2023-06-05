@@ -1,7 +1,7 @@
-package fulboapp.service;
+package com.fulboapp.service;
 
 import java.util.List;
-import fulboapp.dto.UserDTO;
+import com.fulboapp.dto.UserDTO;
 
 public interface IUserService {
 

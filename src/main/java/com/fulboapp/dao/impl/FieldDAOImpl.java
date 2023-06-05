@@ -1,10 +1,11 @@
-package fulboapp.dao.impl;
-
-import fulboapp.dao.IFieldDAO;
-import fulboapp.dto.FieldDTO;
+package com.fulboapp.dao.impl;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.fulboapp.dao.IFieldDAO;
+import com.fulboapp.dto.FieldDTO;
 
+@Repository
 public class FieldDAOImpl implements IFieldDAO {
 
 	@Override

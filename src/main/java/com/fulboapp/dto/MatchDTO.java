@@ -1,9 +1,8 @@
-package fulboapp.dto;
+package com.fulboapp.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import fulboapp.model.User;
+import com.fulboapp.model.User;
 import lombok.Data;
 
 @Data

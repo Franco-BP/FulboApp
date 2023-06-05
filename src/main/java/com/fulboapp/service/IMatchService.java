@@ -1,8 +1,7 @@
-package fulboapp.service;
+package com.fulboapp.service;
 
 import java.util.List;
-
-import fulboapp.dto.MatchDTO;
+import com.fulboapp.dto.MatchDTO;
 
 public interface IMatchService {
 	

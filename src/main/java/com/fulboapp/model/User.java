@@ -1,4 +1,4 @@
-package fulboapp.model;
+package com.fulboapp.model;
 
 import java.io.Serializable;
 import lombok.Data;

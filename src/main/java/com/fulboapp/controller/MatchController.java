@@ -18,6 +18,14 @@ public class MatchController {
   @Autowired
   private IMatchService iMatchService;
 
+
+  @GetMapping("/getAll")
+  public List<MatchDTO> getAll() {
+    return iMatchService.getAll();
+  }
+
+
+
   // No se que se pone en el GetMapping. Por lo que encontre,
   // es algo vinculado a la url donde se ubica el metodo.
 

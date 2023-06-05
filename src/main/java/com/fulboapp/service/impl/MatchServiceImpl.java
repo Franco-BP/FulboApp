@@ -15,6 +15,10 @@ public class MatchServiceImpl implements IMatchService {
   private IMatchDAO iMatchDAO;
 
   private static final Integer MAX_PLAYERS = 10;
+  
+  public List<MatchDTO> getAll(){
+    return iMatchDAO.getAll();
+  }
 
   @Override
   public Boolean getAvailability(Long matchId) {

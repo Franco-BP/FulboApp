@@ -16,7 +16,7 @@ public class MatchDAOImpl implements IMatchDAO {
     List<MatchDTO> list = new ArrayList<MatchDTO>();
     UserDTO userDTO = new UserDTO();
     userDTO.setId(Long.valueOf(1));
-    userDTO.setName("Nico");
+    userDTO.setName("Franco");
 
     MatchDTO matchDTO = new MatchDTO();
     matchDTO.setId(Long.valueOf(1));

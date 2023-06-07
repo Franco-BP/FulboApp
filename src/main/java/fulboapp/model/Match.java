@@ -3,6 +3,8 @@ package fulboapp.model;
 import java.io.Serializable;
 import lombok.Data;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
 public class Match implements Serializable {
@@ -13,15 +15,15 @@ public class Match implements Serializable {
 
 	private Long id;
 
-	/**
-	 * No estoy seguro si me conviene guardar el objeto o el id del creador.
-	 */
 	private User matchCreator;
-
-	private ArrayList<User> playersInMatch = new ArrayList<>();
 	
 	/**
 	 * String en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23)
 	 */
-	private String matchDate;
+	private Date matchDate;
+
+	private List<User> playersInMatch = new ArrayList<>();
+	
+	private List<User> invitedPlayers = new ArrayList<>();
+	
 }

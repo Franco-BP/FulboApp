@@ -2,6 +2,8 @@ package fulboapp.dao.impl;
 
 import fulboapp.dao.IMatchDAO;
 import fulboapp.dto.MatchDTO;
+import fulboapp.dto.UserDTO;
+
 import java.util.List;
 
 public class MatchDAOImpl implements IMatchDAO {
@@ -13,7 +15,7 @@ public class MatchDAOImpl implements IMatchDAO {
 	}
 
 	@Override
-	public void removeMatch(MatchDTO match) {
+	public void deleteMatch(MatchDTO match) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -38,6 +40,30 @@ public class MatchDAOImpl implements IMatchDAO {
 
 	@Override
 	public List<MatchDTO> findMatchesByDate(String date, boolean avoidFulls) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addPlayer(UserDTO userDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Boolean deletePlayer(UserDTO userDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addInvitedPlayers(UserDTO userDTO, Integer Amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Boolean deleteInvitedPlayers(UserDTO userDTO, Integer Amount) {
 		// TODO Auto-generated method stub
 		return null;
 	}

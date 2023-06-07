@@ -1,12 +1,12 @@
 package fulboapp.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import fulboapp.dao.IMatchDAO;
 import fulboapp.dao.IUserDAO;
-import fulboapp.dao.impl.UserDAOImpl;
 import fulboapp.dto.MatchDTO;
 import fulboapp.dto.UserDTO;
 import fulboapp.service.IMatchService;
@@ -16,48 +16,20 @@ public class MatchServiceImpl implements IMatchService {
 
 	@Autowired
 	IMatchDAO iMatchDAO;
+	
+	@Autowired
+	IUserDAO iUserDAO;
 
 	private static final Integer MAX_PLAYERS = 10;
-
-	@Override
-	public Boolean getAvailability(Long matchId) {
-//		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
-//		
-//		if (matchDTO.playersInMatch.size() >= MAX_PLAYERS) {
-//			return null;
-//		} else {
-//			return true;
-//		}
-		
-		return null; /********** Eliminar **********/
-	}
-
-	/** 
-	 * No se como hacer para usar los getter/setter de Lombok.
-	 * Tampoco se si deberia tener un AutoWired de IUserDAO si lo voy a estar usando.
+	
+	/**
+	 * Metodo interno para chequear si un partido tiene cupos.
+	 * @param matchDTO partido a chequear.
+	 * @return True si tiene cupos.
 	 */
-	
-	@Override
-	public Boolean getAvailability(Long matchId, Long userId) {
-//		IUserDAO iUserDAO = new UserDAOImpl();
-//		
-//		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
-//		UserDTO userDTO = iUserDAO.findUser(userId);
-//		
-//		if (matchDTO.playersInMatch.size() >= MAX_PLAYERS) {
-//			return null;
-//		} else if (matchDTO.playersInMatch.contains(userDTO)) {
-//			return false;
-//		} else {
-//			return true;
-//		}
-		
-		return null; /********* Eliminar *********/
-	}
-	
-	@Override
-	public List<MatchDTO> getListAllMatches(Boolean avoidFulls) {
-		return iMatchDAO.findAll(avoidFulls);
+	private Boolean checkAvailability(MatchDTO matchDTO, Integer amountToCheck) {
+		Integer amountOfPlayers = matchDTO.getPlayersInMatch().size() + matchDTO.getInvitedPlayers().size();
+		return amountOfPlayers + amountToCheck <= MAX_PLAYERS;
 	}
 	
 	@Override
@@ -69,42 +41,102 @@ public class MatchServiceImpl implements IMatchService {
 	public void deleteMatch(Long matchId) {
 		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
 		if (matchDTO != null) {
-			iMatchDAO.removeMatch(matchDTO);
+			iMatchDAO.deleteMatch(matchDTO);
 		}
 	}
 	
 	@Override
 	public void updateMatch(Long matchId) {
-		// TODO Auto-generated method stub
-
+		iMatchDAO.updateMatch(iMatchDAO.findMatch(matchId));
 	}
-
+	
+	@Override
+	public List<MatchDTO> getListAllMatches(Boolean avoidFulls) {
+		return iMatchDAO.findAll(avoidFulls);
+	}
+	
 	@Override
 	public void addPlayer(Long matchId, Long userId) {
-//		IUserDAO iUserDAO = new UserDAOImpl();
-//		
-//		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
-//		UserDTO userDTO = iUserDAO.findUser(userId);
-//		
-//		if (matchDTO.playersInMatch.size() < MAX_PLAYERS & !matchDTO.playersInMatch.contains(user) {
-//			matchDTO.playersInMatch.add(userDTO);
-//			iMatchDAO.updateMatch(matchDTO);
-//		}
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		UserDTO userDTO = iUserDAO.findUser(userId);
+		
+		if (this.checkAvailability(matchDTO, 1) & !matchDTO.getPlayersInMatch().contains(userDTO)) {
+			iMatchDAO.addPlayer(userDTO);
+		}
 	}
-
+	
 	@Override
 	public void deletePlayer(Long matchId, Long userId) {
-// 		IUserDAO iUserDAO = new UserDAOImpl();
-//		
-//		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
-//		UserDTO userDTO = iUserDAO.findUser(userId);
-//		
-//		matchDTO.playersInMatch.remove(userDTO);
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		UserDTO userDTO = iUserDAO.findUser(userId);
+		
+		if (matchDTO.getPlayersInMatch().contains(userDTO)) {
+			iMatchDAO.deletePlayer(userDTO);
+		}
+	}
+	
+	@Override
+	public void addInvitedPlayers(Long matchId, Long userId, Integer amount) {
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		UserDTO userDTO = iUserDAO.findUser(userId);
+		
+		if (this.checkAvailability(matchDTO, amount)) {
+			iMatchDAO.addInvitedPlayers(userDTO, amount);
+		}
+	}
+	
+	@Override
+	public void deleteInvitedPlayers(Long matchId, Long userId, Integer amount) {
+		
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		UserDTO userDTO = iUserDAO.findUser(userId);
+	
+		if (matchDTO.getInvitedPlayers().contains(userDTO)) {
+			iMatchDAO.deleteInvitedPlayers(userDTO, amount);
+		}
 	}
 
 	@Override
-	public Boolean setDate(Long matchId, String date) {
-		// TODO Auto-generated method stub
+	public Boolean getAvailability(Long matchId) {
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		
+		if (this.checkAvailability(matchDTO, 1)) {
+			return true;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public Boolean getAvailabilityForUser(Long matchId, Long userId) {
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		UserDTO userDTO = iUserDAO.findUser(userId);
+		
+		if (!this.checkAvailability(matchDTO, 1)) {
+			return null;
+		} else if (matchDTO.getPlayersInMatch().contains(userDTO)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * Metodo para setear la fecha del partido.
+	 * @param matchId id Long del partido.
+	 * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23) 
+	 * @return True si se pudo setear bien.
+	 */
+	@Override
+	public Boolean setDate(Long matchId, Date date) {
+		MatchDTO matchDTO = iMatchDAO.findMatch(matchId);
+		
+		//if (date.getYear())
+		////////////////////////////////////////////////////////////
+			
+		matchDTO.setMatchDate(date);
+		iMatchDAO.updateMatch(matchDTO);
 		return null;
 	}
+
 }

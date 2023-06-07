@@ -2,8 +2,8 @@ package fulboapp.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
-import fulboapp.model.User;
 import lombok.Data;
 
 @Data
@@ -13,13 +13,52 @@ public class MatchDTO implements Serializable {
 
 	private Long id;
 
-	/**
-	 * No estoy seguro si me conviene guardar el objeto o el id del creador.
-	 * Si es el objeto, no estoy seguro si conviene la entity o el DTO.
-	 */
-	private User matchCreator;
+	private UserDTO matchCreator;
 
-	private ArrayList<User> playersInMatch = new ArrayList<>();
+	private Date matchDate;
 
-	private String matchDate;
+	private ArrayList<UserDTO> playersInMatch = new ArrayList<>();
+
+	private ArrayList<UserDTO> invitedPlayers = new ArrayList<>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public UserDTO getMatchCreator() {
+		return matchCreator;
+	}
+
+	public void setMatchCreator(UserDTO matchCreator) {
+		this.matchCreator = matchCreator;
+	}
+
+	public Date getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public ArrayList<UserDTO> getPlayersInMatch() {
+		return playersInMatch;
+	}
+
+	public void setPlayersInMatch(ArrayList<UserDTO> playersInMatch) {
+		this.playersInMatch = playersInMatch;
+	}
+
+	public ArrayList<UserDTO> getInvitedPlayers() {
+		return invitedPlayers;
+	}
+
+	public void setInvitedPlayers(ArrayList<UserDTO> invitedPlayers) {
+		this.invitedPlayers = invitedPlayers;
+	}
+
 }

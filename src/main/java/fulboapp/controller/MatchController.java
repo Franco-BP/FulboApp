@@ -1,5 +1,6 @@
 package fulboapp.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +20,83 @@ public class MatchController {
 	@Autowired
 	private IMatchService iMatchService;
 
-	// No se que se pone en el GetMapping. Por lo que encontre,
-	// es algo vinculado a la url donde se ubica el metodo.
+	/**
+	 * Metodo para obtener un partido particular.
+	 * @param matchId - Long con el id del partido. 
+	 * @return MatchDTO o null si no hay coincidencias.
+	 */
+	@GetMapping("/match/getMatch")
+	public MatchDTO getMatch(@RequestBody Long matchId) {
+		return iMatchService.getMatch(matchId);
+	}
 	
-	// Por lo que encontre, el RequestBody toma los datos del Json. No se si
-	// es necesario usarlo en Strings, pero supongo que Long y Boolean si 
-	// pues no son primitivas.
+	/**
+	 * Metodo para eliminar un partido.
+	 * @param matchId id del partido
+	 */
+	@DeleteMapping("/match/deleteMatch")
+	public void deleteMatch(@RequestBody Long matchId) {
+		iMatchService.deleteMatch(matchId);
+	}
+	
+	/**
+	 * Metodo para hacer el update de un partido.
+	 * @param matchId id del partido.
+	 */
+	@PutMapping("/match/updatePlayers")
+	public void updateMatch(@RequestBody Long matchId) {
+		iMatchService.updateMatch(matchId);
+	}
+	
+	/**
+	 * Metodo para obtener todos los partidos.
+	 * @param avoidFulls - True si se desea evitar los partidos ya completos.
+	 * @return List<MatchDTO> - Lista de los partidos encontrados.
+	 */
+	@GetMapping("/match/getListAllMatches")
+	public List<MatchDTO> getListAllMatches(@RequestBody Boolean avoidFulls) {
+		return iMatchService.getListAllMatches(avoidFulls);
+	}
+	
+	/**
+	 * Metodo para agregar un jugador al partido.
+	 * 
+	 * @param matchId id del partido.
+	 * @param userId  id del jugador.
+	 */
+	@PostMapping("/match/addPlayer")
+	public void addPlayer(@RequestBody Long matchId, @RequestBody Long userId) {
+		iMatchService.addPlayer(matchId, userId);
+	}
 
-	// No se si RequestBody es necesario ponerlo a todos los parametros, no se si es
-	// especifico de la variable o del ingreso (osea: ponerlo 1 o 2 veces si hay 2 parametros).
-
-	@GetMapping("/getAvailability")
+	/**
+	 * Metodo para eliminar un jugador de un partido.
+	 * 
+	 * @param matchId id del partido.
+	 * @param userId  id del jugador
+	 */
+	@DeleteMapping("/match/deletePlayer")
+	public void deletePlayer(@RequestBody Long matchId, @RequestBody Long userId) {
+		iMatchService.deletePlayer(matchId, userId);
+	}
+	
+	/**
+	 * Metodo para agregar un jugador al partido.
+	 * 
+	 * @param matchId id del partido.
+	 * @param userId  id del jugador.
+	 */
+	@PostMapping("/match/addInvitedPlayers")
+	public void addInvitedPlayers(@RequestBody Long matchId, @RequestBody Long userId, @RequestBody Integer amount) {
+		iMatchService.addInvitedPlayers(matchId, userId, amount);
+	}
+	
+	/**
+	 * Metodo para chequear la disponibilidad de cupos para un partido.
+	 * @param matchId id del partido.
+	 * @return null si esta lleno, true si tiene cupos.
+	 */
+	@GetMapping("/match/getAvailability")
 	public Boolean getAvailability(@RequestBody Long matchId) {
 		return iMatchService.getAvailability(matchId);
 	}
@@ -42,60 +109,9 @@ public class MatchController {
 	 * @return null si esta lleno, false si el jugador esta repetido y true si tiene
 	 *         cupos.
 	 */
-	@GetMapping("/getAvailability")
-	public Boolean getAvailability(@RequestBody Long matchId, @RequestBody Long userId) {
-		return iMatchService.getAvailability(matchId, userId);
-	}
-	
-	/**
-	 * Metodo para obtener todos los partidos.
-	 * @param avoidFulls - True si se desea evitar los partidos ya completos.
-	 * @return List<MatchDTO> - Lista de los partidos encontrados.
-	 */
-	@GetMapping("/getListAllMatches")
-	public List<MatchDTO> getListAllMatches(@RequestBody Boolean avoidFulls) {
-		return iMatchService.getListAllMatches(avoidFulls);
-	}
-	
-	/**
-	 * Metodo para obtener un partido particular.
-	 * @param matchId - Long con el id del partido. 
-	 * @return MatchDTO o null si no hay coincidencias.
-	 */
-	public MatchDTO getMatch(@RequestBody Long matchId) {
-		return iMatchService.getMatch(matchId);
-	}
-	
-	public void deleteMatch(@RequestBody Long matchId) {
-		iMatchService.deleteMatch(matchId);
-	}
-
-	/**
-	 * Metodo para agregar un jugador al partido.
-	 * 
-	 * @param matchId id del partido.
-	 * @param userId  id del jugador.
-	 */
-	@PostMapping("/addPlayer")
-	public void addPlayer(@RequestBody Long matchId, @RequestBody Long userId) {
-		iMatchService.addPlayer(matchId, userId);
-	}
-
-	/**
-	 * Metodo para eliminar un jugador de un partido.
-	 * 
-	 * @param matchId id del partido.
-	 * @param userId  id del jugador
-	 */
-	@DeleteMapping("/deletePlayer")
-	public void deletePlayer(@RequestBody Long matchId, @RequestBody Long userId) {
-		iMatchService.deletePlayer(matchId, userId);
-	}
-
-	// No estoy seguro de que sea necesario el update como servicio.
-	@PutMapping("/updatePlayers")
-	public void updateMatch(@RequestBody Long matchId) {
-		iMatchService.updateMatch(matchId);
+	@GetMapping("/match/getAvailabilityForUser")
+	public Boolean getAvailabilityForUser(@RequestBody Long matchId, @RequestBody Long userId) {
+		return iMatchService.getAvailabilityForUser(matchId, userId);
 	}
 
 	/**
@@ -105,8 +121,8 @@ public class MatchController {
 	 * @param date    fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] =
 	 *                (1->23)
 	 */
-	@PostMapping("/setDate")
-	public Boolean setDate(@RequestBody Long matchId, @RequestBody String date) {
+	@PostMapping("/match/setDate")
+	public Boolean setDate(@RequestBody Long matchId, @RequestBody Date date) {
 		return iMatchService.setDate(matchId, date);
 	}
 }

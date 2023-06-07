@@ -1,18 +1,16 @@
-package com.fulboapp.model;
+package fulboapp.dto;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import fulboapp.model.Match;
 import lombok.Data;
 
 @Data
-public class User implements Serializable {
+public class UserDTO implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3719638096558536431L;
+	private static final long serialVersionUID = 6455781916662830542L;
 
 	private Long id;
 
@@ -28,11 +26,7 @@ public class User implements Serializable {
 
 	private String email;
 
-	private Map<Long, Match> subscribedMatches = new HashMap<Long, Match>();
-
-	public String getFullName() {
-		return this.name + " " + this.lastName;
-	}
+	private Map<Long, MatchDTO> subscribedMatches = new HashMap<Long, MatchDTO>();
 
 	public Long getId() {
 		return id;
@@ -90,14 +84,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public Map<Long, Match> getSubscribedMatches() {
+	public Map<Long, MatchDTO> getSubscribedMatches() {
 		return subscribedMatches;
 	}
 
-	public void setSubscribedMatches(Map<Long, Match> subscribedMatches) {
+	public void setSubscribedMatches(Map<Long, MatchDTO> subscribedMatches) {
 		this.subscribedMatches = subscribedMatches;
 	}
-	
-	
 
 }

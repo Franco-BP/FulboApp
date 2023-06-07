@@ -1,17 +1,40 @@
-package com.fulboapp.dao;
+package fulboapp.dao;
 
 import java.util.List;
-import com.fulboapp.dto.FieldDTO;
+import java.util.Map;
+
+import fulboapp.dto.FieldDTO;
 
 public interface IFieldDAO {
 
 	/**
+	 * Agrega una cancha a la base de datos.
+	 *
+	 * @param field Objeto a agregar.
+	 */
+	public void addField(FieldDTO field);
+
+	/**
+	 * Elimina una cancha existente de la base de datos.
+	 *
+	 * @param field Objeto a actualizar.
+	 */
+	public void deleteField(FieldDTO field);
+
+	/**
+	 * Actualiza una cancha en la base de datos.
+	 *
+	 * @param field Objeto a eliminar.
+	 */
+	public void updateField(FieldDTO field);
+	
+	/**
 	 * Busca una cancha con el ID ingresado.
 	 *
-	 * @param fieldID ID de la cancha.
+	 * @param fieldId ID de la cancha.
 	 * @return objeto FieldDTO o null si no hay coincidencias.
 	 */
-	public FieldDTO findField(Long fieldID);
+	public FieldDTO findField(Long fieldId);
 
 	/**
 	 * Busca todas las canchas de la base de datos.
@@ -27,25 +50,12 @@ public interface IFieldDAO {
 	 * @return List<FieldDTO> con las canchas que coincidan.
 	 */
 	public List<FieldDTO> findByLocation(String location);
-
+	
 	/**
-	 * Agrega una cancha a la base de datos.
-	 *
-	 * @param field Objeto a agregar.
+	 * Busca el calendario de una cancha.
+	 * @param fieldId - ID de la cancha.
+	 * @return Map<String, Map<String, Boolean>> con el calendario.
 	 */
-	public void addField(FieldDTO field);
+	public Map<String, Map<String, Boolean>> findCalendar(Long fieldId);
 
-	/**
-	 * Elimina una cancha existente de la base de datos.
-	 *
-	 * @param field Objeto a actualizar.
-	 */
-	public void removeField(FieldDTO field);
-
-	/**
-	 * Actualiza una cancha en la base de datos.
-	 *
-	 * @param field Objeto a eliminar.
-	 */
-	public void updateField(FieldDTO field);
 }

@@ -1,12 +1,12 @@
-package com.fulboapp.dao.impl;
+package fulboapp.dao.impl;
 
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.stereotype.Repository;
-import com.fulboapp.dao.IUserDAO;
-import com.fulboapp.dto.UserDTO;
 
-@Repository
+import fulboapp.dao.IUserDAO;
+import fulboapp.dto.UserDTO;
+import fulboapp.model.User;
+
 public class UserDAOImpl implements IUserDAO {
 
 	@Override
@@ -24,12 +24,18 @@ public class UserDAOImpl implements IUserDAO {
 	}
 
 	@Override
-	public void addUser(UserDTO user) {
+	public void addUser(UserDTO userDTO) {
 		throw new UnsupportedOperationException("Not supported yet.");
+		/**
+		 * En los DAO se pasa de DTOs a Entities para guardarlas en base de datos o de Entities a DTOs para recibirlos.
+		 */
+//	User user = new User();
+//	user.setEmail(userDTO.getEmail());
+//	getBaseDeDatos
 	}
 
 	@Override
-	public void removeUser(UserDTO user) {
+	public void deleteUser(UserDTO user) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 

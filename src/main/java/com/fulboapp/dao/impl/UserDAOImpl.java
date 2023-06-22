@@ -42,12 +42,12 @@ public class UserDAOImpl implements IUserDAO {
 
   @Override
   public void deleteUser(UserDTO user) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    // ACA SE LLAMA A LA BD Y SE BORRA EL OBJETO USER
   }
 
   @Override
   public void updateUser(UserDTO user) {
-    throw new UnsupportedOperationException("Not supported yet.");
+
   }
 
 }

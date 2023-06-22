@@ -30,4 +30,20 @@ public class UserController {
     return iUserService.addUser(userDTO);
   }
 
+  @GetMapping("/deleteUser")
+  public UserDTO deleteUser(@RequestBody UserDTO userDTO) {
+    return iUserService.addUser(userDTO);
+  }
+
+  @GetMapping("/findUserByCi")
+  public UserDTO findUserByCi(@RequestBody Long ci) {
+    // return iUserService.addUser(userDTO);
+    return null;
+  }
+
+  @GetMapping("/updateUser")
+  public UserDTO updateUser(@RequestBody UserDTO userDTO) {
+    return iUserService.addUser(userDTO);
+  }
+
 }

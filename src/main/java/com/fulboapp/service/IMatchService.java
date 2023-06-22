@@ -17,7 +17,7 @@ public interface IMatchService {
    * @param matchId id del partido a chequear.
    * @return null si esta lleno, true si tiene cupos.
    */
-  public Boolean getAvailability(Long matchId);
+  Boolean getAvailability(Long matchId);
 
   /**
    * Metodo para chequear la disponibilidad de cupos para un jugador particular.
@@ -26,14 +26,14 @@ public interface IMatchService {
    * @param userId id del jugador a chequear.
    * @return null si esta lleno, false si el jugador esta repetido y true si tiene cupos.
    */
-  public Boolean getAvailability(Long matchId, Long userId);
+  Boolean getAvailability(Long matchId, Long userId);
 
   /**
    * Metodo para obtener todos los partidos.
    * 
    * @return List<MatchDTO> con todos los partidos.
    */
-  public List<MatchDTO> getListAllMatches(Boolean avoidFulls);
+  List<MatchDTO> getListAllMatches(Boolean avoidFulls);
 
   /**
    * Metodo para obtener un partido.
@@ -41,17 +41,17 @@ public interface IMatchService {
    * @param matchId - Long con el id del partido.
    * @return MatchDTO - null si no hay coincidencias.
    */
-  public MatchDTO getMatch(Long matchId);
+  MatchDTO getMatch(Long matchId);
 
   /**
    * Metodo para eliminar un partido
    * 
    * @param matchId - Long con el id del partido.
    */
-  public void deleteMatch(Long matchId);
+  void deleteMatch(Long matchId);
 
   // No estoy seguro de que sea necesario el update como servicio.
-  public void updateMatch(Long matchId);
+  void updateMatch(Long matchId);
 
   /**
    * Metodo para agregar un jugador al partido.
@@ -59,7 +59,7 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param userId id del jugador.
    */
-  public void addPlayer(Long matchId, Long userId);
+  void addPlayer(Long matchId, Long userId);
 
   /**
    * Metodo para eliminar un jugador de un partido.
@@ -67,7 +67,7 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param userId id del jugador
    */
-  public void deletePlayer(Long matchId, Long userId);
+  void deletePlayer(Long matchId, Long userId);
 
   /**
    * Metodo para setear la fecha del partido.
@@ -75,5 +75,5 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23)
    */
-  public Boolean setDate(Long matchId, Date date);
+  Boolean setDate(Long matchId, Date date);
 }

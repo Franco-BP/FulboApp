@@ -9,28 +9,28 @@ public interface IMatchDAO {
    * Metodo que nos devuelve todos los Match cargados
    */
 
-  public List<MatchDTO> getAll();
+  List<MatchDTO> getAll();
 
   /**
    * Agrega un nuevo partido.
    *
    * @param match - objeto MatchDTO.
    */
-  public void addMatch(MatchDTO match);
+  void addMatch(MatchDTO match);
 
   /**
    * Elimina un partido.
    *
    * @param match - objeto MatchDTO.
    */
-  public void removeMatch(MatchDTO match);
+  void removeMatch(MatchDTO match);
 
   /**
    * Actualiza los datos de un partido.
    *
    * @param match - objeto MatchDTO.
    */
-  public void updateMatch(MatchDTO match);
+  void updateMatch(MatchDTO match);
 
   /**
    * Busca el partido con el ID ingresado.
@@ -38,7 +38,7 @@ public interface IMatchDAO {
    * @param matchID - Long del ID.
    * @return objeto MatchDTO o null si no hay coincidencias.
    */
-  public MatchDTO findMatch(Long matchID);
+  MatchDTO findMatch(Long matchID);
 
   /**
    * Busca los partidos guardados.
@@ -46,7 +46,7 @@ public interface IMatchDAO {
    * @param avoidFulls - True si se desea solo los partidos con cupos.
    * @return List<MatchDTO> que cumplen con la condición de ingreso.
    */
-  public List<MatchDTO> findAll(boolean avoidFulls);
+  List<MatchDTO> findAll(boolean avoidFulls);
 
   /**
    * Busca los partidos de un día particular.
@@ -55,6 +55,6 @@ public interface IMatchDAO {
    * @param avoidFulls - True si se desea solo los partidos con cupos.
    * @return ArrayList<MatchDTO> que cumplen con la condición de ingreso.
    */
-  public List<MatchDTO> findMatchesByDate(String date, boolean avoidFulls);
+  List<MatchDTO> findMatchesByDate(String date, boolean avoidFulls);
 
 }

@@ -10,12 +10,16 @@ import com.fulboapp.service.IUserService;
 @Service
 public class UserServiceImpl implements IUserService {
 
-	@Autowired
-	IUserDAO iUserDAO;
+  @Autowired
+  IUserDAO iUserDAO;
 
-	@Override
-	public List<UserDTO> getListAllUser() {
-		return iUserDAO.findAll();
-	}
+  @Override
+  public List<UserDTO> getListAllUser() {
+    return iUserDAO.findAll();
+  }
+
+  public UserDTO addUser(UserDTO userDTO) {
+    return iUserDAO.addUser(userDTO);
+  }
 
 }

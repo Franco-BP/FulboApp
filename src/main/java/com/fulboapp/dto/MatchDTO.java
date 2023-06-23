@@ -40,6 +40,4 @@ public class MatchDTO implements Serializable {
     this.matchDate = matchDate;
   }
 
-
-
 }

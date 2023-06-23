@@ -6,25 +6,32 @@ import com.fulboapp.dto.FieldDTO;
 public interface IFieldDAO {
 
   /**
-   * Agrega una cancha a la base de datos.
+   * Agrega una nueva cancha a la base de datos.
    *
    * @param field Objeto a agregar.
    */
-  void addField(FieldDTO field);
+  FieldDTO addField(FieldDTO fieldDTO);
 
   /**
    * Elimina una cancha existente de la base de datos.
    *
    * @param field Objeto a actualizar.
    */
-  void deleteField(FieldDTO field);
+  FieldDTO deleteField(FieldDTO fieldDTO);
 
   /**
    * Actualiza una cancha en la base de datos.
    *
    * @param field Objeto a eliminar.
    */
-  void updateField(FieldDTO field);
+  FieldDTO updateField(FieldDTO fieldDTO);
+  
+  /**
+   * Busca todas las canchas de la base de datos.
+   * 
+   * @return List<FieldDTO> con las canchas encontradas.
+   */
+  List<FieldDTO> getListAllField();
 
   /**
    * Busca una cancha con el ID ingresado.
@@ -32,14 +39,15 @@ public interface IFieldDAO {
    * @param fieldId ID de la cancha.
    * @return objeto FieldDTO o null si no hay coincidencias.
    */
-  FieldDTO findField(Long fieldId);
-
+  FieldDTO findFieldById(Long fieldId);
+  
   /**
-   * Busca todas las canchas de la base de datos.
-   * 
-   * @return List<FieldDTO> con las canchas encontradas.
+   * Busca una cancha con el nombre ingresado.
+   *
+   * @param fieldName Name de la cancha.
+   * @return objeto FieldDTO o null si no hay coincidencias.
    */
-  List<FieldDTO> findAll();
+  FieldDTO findFieldByName(String name);
 
   /**
    * Busca todas las canchas que tengan el ingreso como parte de su ubicacion.

@@ -18,8 +18,6 @@ public class CompanyDTO implements Serializable {
 
   private String email;
 
-  private List<FieldDTO> fieldsInCompany = new ArrayList<FieldDTO>();
-
   public Long getId() {
     return id;
   }
@@ -51,12 +49,5 @@ public class CompanyDTO implements Serializable {
   public void setEmail(String email) {
     this.email = email;
   }
-
-  public List<FieldDTO> getFieldsInCompany() {
-    return fieldsInCompany;
-  }
-
-  public void setFieldsInCompany(List<FieldDTO> fieldsInCompany) {
-    this.fieldsInCompany = fieldsInCompany;
-  }
+ 
 }

@@ -33,10 +33,7 @@ public class MatchServiceImpl implements IMatchService {
     return null; /********** Eliminar **********/
   }
 
-  /**
-   * No se como hacer para usar los getter/setter de Lombok. Tampoco se si deberia tener un
-   * AutoWired de IUserDAO si lo voy a estar usando.
-   */
+  
 
   @Override
   public Boolean getAvailability(Long matchId, Long userId) {

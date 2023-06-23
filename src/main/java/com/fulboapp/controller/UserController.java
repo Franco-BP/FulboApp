@@ -15,12 +15,6 @@ public class UserController {
   @Autowired
   private IUserService iUserService;
 
-  /**
-   * Devuelve la lista completa de usuarios del sistema.
-   * 
-   * @param userDTO
-   * @return
-   */
   @GetMapping("/getUserSubscriptionsCost")
   public List<UserDTO> getListAllUser(@RequestBody UserDTO userDTO) {
     return iUserService.getListAllUser();

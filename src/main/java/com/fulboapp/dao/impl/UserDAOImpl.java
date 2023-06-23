@@ -54,6 +54,8 @@ public class UserDAOImpl implements IUserDAO {
 
   @Override
   public UserDTO findUserByCi(Long userCi) {
+    UserDTO userDTO = new UserDTO();
+    userDTO.setIc(userCi);
     return new UserDTO();
   }
 

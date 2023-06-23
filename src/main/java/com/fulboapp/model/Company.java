@@ -1,8 +1,6 @@
 package com.fulboapp.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.Data;
 
 @Data
@@ -18,5 +16,4 @@ public class Company implements Serializable {
 
   private String email;
 
-  private List<Field> fieldsInCompany = new ArrayList<Field>();
 }

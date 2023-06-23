@@ -1,7 +1,6 @@
 package com.fulboapp.dao.impl;
 
 import java.util.List;
-import java.util.Map;
 import com.fulboapp.dao.IFieldDAO;
 import com.fulboapp.dto.FieldDTO;
 
@@ -43,9 +42,5 @@ public class FieldDAOImpl implements IFieldDAO {
 
   }
 
-  @Override
-  public Map<String, Map<String, Boolean>> findCalendar(Long fieldId) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+
 }

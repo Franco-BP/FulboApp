@@ -12,7 +12,7 @@ public class UserDAOImpl implements IUserDAO {
 
   @Override
   public UserDTO findUser(Long userID) {
-    return null;
+    return new UserDTO();
   }
 
   /**
@@ -56,7 +56,7 @@ public class UserDAOImpl implements IUserDAO {
   public UserDTO findUserByCi(Long userCi) {
     UserDTO userDTO = new UserDTO();
     userDTO.setIc(userCi);
-    return new UserDTO();
+    return userDTO;
   }
 
 }

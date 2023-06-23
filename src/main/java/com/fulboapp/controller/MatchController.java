@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.fulboapp.dto.MatchDTO;
 import com.fulboapp.service.IMatchService;
@@ -37,7 +38,7 @@ public class MatchController {
   // especifico de la variable o del ingreso (osea: ponerlo 1 o 2 veces si hay 2 parametros).
 
   @GetMapping("/getAvailability")
-  public Boolean getAvailability(@RequestBody Long matchId) {
+  public Boolean getAvailability(@RequestParam Long matchId) {
     return iMatchService.getAvailability(matchId);
   }
 
@@ -54,7 +55,7 @@ public class MatchController {
    * @return null si esta lleno, false si el jugador esta repetido y true si tiene cupos.
    */
   @GetMapping("/getAvailability2")
-  public Boolean getAvailability(@RequestBody Long matchId, @RequestBody Long userId) {
+  public Boolean getAvailability(@RequestParam Long matchId, @RequestParam Long userId) {
     return iMatchService.getAvailability(matchId, userId);
   }
 
@@ -65,7 +66,7 @@ public class MatchController {
    * @return List<MatchDTO> - Lista de los partidos encontrados.
    */
   @GetMapping("/getListAllMatches")
-  public List<MatchDTO> getListAllMatches(@RequestBody Boolean avoidFulls) {
+  public List<MatchDTO> getListAllMatches(@RequestParam Boolean avoidFulls) {
     return iMatchService.getListAllMatches(avoidFulls);
   }
 
@@ -90,7 +91,7 @@ public class MatchController {
    * @param userId id del jugador.
    */
   @PostMapping("/addPlayer")
-  public void addPlayer(@RequestBody Long matchId, @RequestBody Long userId) {
+  public void addPlayer(@RequestParam Long matchId, @RequestParam Long userId) {
     iMatchService.addPlayer(matchId, userId);
   }
 
@@ -101,13 +102,13 @@ public class MatchController {
    * @param userId id del jugador
    */
   @DeleteMapping("/deletePlayer")
-  public void deletePlayer(@RequestBody Long matchId, @RequestBody Long userId) {
+  public void deletePlayer(@RequestParam Long matchId, @RequestParam Long userId) {
     iMatchService.deletePlayer(matchId, userId);
   }
 
   // No estoy seguro de que sea necesario el update como servicio.
   @PutMapping("/updatePlayers")
-  public void updateMatch(@RequestBody Long matchId) {
+  public void updateMatch(@RequestParam Long matchId) {
     iMatchService.updateMatch(matchId);
   }
 
@@ -118,7 +119,7 @@ public class MatchController {
    * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23)
    */
   @PostMapping("/setDate")
-  public Boolean setDate(@RequestBody Long matchId, @RequestBody Date date) {
+  public Boolean setDate(@RequestParam Long matchId, @RequestParam Date date) {
     return iMatchService.setDate(matchId, date);
   }
 }

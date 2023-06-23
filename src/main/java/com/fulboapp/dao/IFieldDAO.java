@@ -1,7 +1,6 @@
 package com.fulboapp.dao;
 
 import java.util.List;
-import java.util.Map;
 import com.fulboapp.dto.FieldDTO;
 
 public interface IFieldDAO {
@@ -50,12 +49,5 @@ public interface IFieldDAO {
    */
   List<FieldDTO> findByLocation(String location);
 
-  /**
-   * Busca el calendario de una cancha.
-   * 
-   * @param fieldId - ID de la cancha.
-   * @return Map<String, Map<String, Boolean>> con el calendario.
-   */
-  Map<String, Map<String, Boolean>> findCalendar(Long fieldId);
 
 }

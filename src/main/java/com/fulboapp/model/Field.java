@@ -1,7 +1,6 @@
 package com.fulboapp.model;
 
 import java.io.Serializable;
-import java.util.Map;
 import lombok.Data;
 
 @Data
@@ -13,5 +12,4 @@ public class Field implements Serializable {
 
   private String location;
 
-  private Map<String, Map<String, Boolean>> calendar;
 }

@@ -22,4 +22,21 @@ public class UserServiceImpl implements IUserService {
     return iUserDAO.addUser(userDTO);
   }
 
+  @Override
+  public UserDTO deleteUser(UserDTO userDTO) {
+    return iUserDAO.deleteUser(userDTO);
+  }
+
+  @Override
+  public UserDTO updateUser(UserDTO userDTO) {
+    return iUserDAO.updateUser(userDTO);
+  }
+
+  @Override
+  public UserDTO findUserByCi(Long ci) {
+    return iUserDAO.findUserByCi(ci);
+  }
+
+
+
 }

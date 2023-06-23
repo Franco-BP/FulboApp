@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.fulboapp.dto.UserDTO;
 import com.fulboapp.service.IUserService;
@@ -32,18 +33,17 @@ public class UserController {
 
   @GetMapping("/deleteUser")
   public UserDTO deleteUser(@RequestBody UserDTO userDTO) {
-    return iUserService.addUser(userDTO);
+    return iUserService.deleteUser(userDTO);
   }
 
   @GetMapping("/findUserByCi")
-  public UserDTO findUserByCi(@RequestBody Long ci) {
-    // return iUserService.addUser(userDTO);
-    return null;
+  public UserDTO findUserByCi(@RequestParam Long ci) {
+    return iUserService.findUserByCi(ci);
   }
 
   @GetMapping("/updateUser")
   public UserDTO updateUser(@RequestBody UserDTO userDTO) {
-    return iUserService.addUser(userDTO);
+    return iUserService.updateUser(userDTO);
   }
 
 }

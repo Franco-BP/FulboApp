@@ -12,7 +12,7 @@ public class UserDAOImpl implements IUserDAO {
 
   @Override
   public UserDTO findUser(Long userID) {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return null;
   }
 
   /**
@@ -41,13 +41,20 @@ public class UserDAOImpl implements IUserDAO {
   }
 
   @Override
-  public void deleteUser(UserDTO user) {
+  public UserDTO deleteUser(UserDTO user) {
     // ACA SE LLAMA A LA BD Y SE BORRA EL OBJETO USER
+    return new UserDTO();
   }
 
   @Override
-  public void updateUser(UserDTO user) {
+  public UserDTO updateUser(UserDTO user) {
+    // ACA SE LLAMA A LA BD Y SE HACE UN UPDATE EL OBJETO USER
+    return new UserDTO();
+  }
 
+  @Override
+  public UserDTO findUserByCi(Long userCi) {
+    return new UserDTO();
   }
 
 }

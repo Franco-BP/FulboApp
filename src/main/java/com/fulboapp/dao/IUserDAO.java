@@ -16,15 +16,16 @@ public interface IUserDAO {
    * Elimina un usuario existente de la base de datos.
    *
    * @param user Objeto a actualizar.
+   * @return 
    */
-  void deleteUser(UserDTO user);
+  UserDTO deleteUser(UserDTO user);
 
   /**
    * Actualiza un usuario en la base de datos.
    *
    * @param user Objeto a eliminar.
    */
-  void updateUser(UserDTO user);
+  UserDTO updateUser(UserDTO user);
 
   /**
    * Busca un usuario con el ID ingresado.
@@ -40,5 +41,15 @@ public interface IUserDAO {
    * @return ArrayList<IUserDTO> con los usuarios.
    */
   List<UserDTO> findAll();
+
+  /**
+   * Busca un usuario con el ID ingresado.
+   *
+   * @param userCi CI del usuario.
+   * @return objeto IUserDAO o null si no hay coincidencias.
+   */
+  UserDTO findUserByCi(Long userCi);
+
+
 
 }

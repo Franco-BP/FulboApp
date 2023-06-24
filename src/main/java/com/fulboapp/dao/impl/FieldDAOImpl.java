@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.fulboapp.model.Company;
 import com.fulboapp.model.Field;
 import com.fulboapp.dao.IFieldDAO;
 import com.fulboapp.dto.CompanyDTO;
 import com.fulboapp.dto.FieldDTO;
 
+@Repository
 public class FieldDAOImpl implements IFieldDAO {
 
 	@Override

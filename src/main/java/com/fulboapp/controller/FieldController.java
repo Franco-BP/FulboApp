@@ -17,6 +17,10 @@ public class FieldController {
 	@Autowired
 	IFieldService iFieldService;
 	
+	/**
+	 * Lista todos las canchas.
+	 * @return
+	 */
 	@GetMapping("/getListAllField")
 	public List<FieldDTO> getListAllField() {
 		return iFieldService.getListAllField();

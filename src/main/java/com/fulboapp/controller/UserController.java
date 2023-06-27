@@ -74,7 +74,7 @@ public class UserController {
    * 
    * @return
    */
-  @GetMapping("/getUserSubscriptionsCost")
+  @GetMapping("/getListAllUser")
   public List<UserDTO> getListAllUser() {
     return iUserService.getListAllUser();
   }

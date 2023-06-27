@@ -19,8 +19,6 @@ public class FieldController {
 	
 	@GetMapping("/getListAllField")
 	public List<FieldDTO> getListAllField() {
-		// Por que UserController pide un objeto UserDTO para buscar todos los User
-		// Si no se va a usar para la busqueda?
 		return iFieldService.getListAllField();
 	}
 	

@@ -17,29 +17,53 @@ public class UserController {
   @Autowired
   private IUserService iUserService;
 
-  @GetMapping("/getUserSubscriptionsCost")
-  public List<UserDTO> getListAllUser() {
-    return iUserService.getListAllUser();
-  }
-
+  /**
+   * Agrega un nuevo usuario.
+   * @param userDTO
+   * @return
+   */
   @GetMapping("/addUser")
   public UserDTO addUser(@RequestBody UserDTO userDTO) {
     return iUserService.addUser(userDTO);
   }
 
+  /**
+   * Borra un usuario.
+   * @param userDTO
+   * @return
+   */
   @DeleteMapping("/deleteUser")
   public UserDTO deleteUser(@RequestBody UserDTO userDTO) {
     return iUserService.deleteUser(userDTO);
   }
 
+  /**
+   * Busca un usario por CI.
+   * @param ci
+   * @return
+   */
   @GetMapping("/findUserByCi")
   public UserDTO findUserByCi(@RequestParam Long ci) {
     return iUserService.findUserByCi(ci);
   }
 
+  /**
+   * Actualiza un usuario previamente cargado.
+   * @param userDTO
+   * @return
+   */
   @PutMapping("/updateUser")
   public UserDTO updateUser(@RequestBody UserDTO userDTO) {
     return iUserService.updateUser(userDTO);
+  }
+
+  /**
+   * Lista de todos los usuarios.
+   * @return
+   */
+  @GetMapping("/getUserSubscriptionsCost")
+  public List<UserDTO> getListAllUser() {
+    return iUserService.getListAllUser();
   }
 
 }

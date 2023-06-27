@@ -10,7 +10,7 @@ public interface IUserDAO {
    *
    * @param user Objeto a agregar.
    */
-  UserDTO addUser(UserDTO user);
+  void addUser(UserDTO user);
 
   /**
    * Elimina un usuario existente de la base de datos.
@@ -18,14 +18,14 @@ public interface IUserDAO {
    * @param user Objeto a actualizar.
    * @return 
    */
-  UserDTO deleteUser(UserDTO user);
+  void deleteUser(UserDTO user);
 
   /**
    * Actualiza un usuario en la base de datos.
    *
    * @param user Objeto a eliminar.
    */
-  UserDTO updateUser(UserDTO user);
+  void updateUser(UserDTO user);
 
   /**
    * Busca un usuario con el ID ingresado.

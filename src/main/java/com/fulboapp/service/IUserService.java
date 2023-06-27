@@ -7,11 +7,11 @@ public interface IUserService {
 
   List<UserDTO> getListAllUser();
 
-  UserDTO addUser(UserDTO userDTO);
+  void addUser(UserDTO userDTO);
 
-  UserDTO deleteUser(UserDTO userDTO);
+  void deleteUser(UserDTO userDTO);
 
-  UserDTO updateUser(UserDTO userDTO);
+  void updateUser(UserDTO userDTO);
 
   UserDTO findUserByCi(Long ci);
 

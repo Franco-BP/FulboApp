@@ -7,11 +7,11 @@ public interface IFieldService {
 
 	List<FieldDTO> getListAllField();
 	
-	FieldDTO addField(FieldDTO fieldDTO);
+	void addField(FieldDTO fieldDTO);
 	
-	FieldDTO deleteField(FieldDTO fieldDTO);
+	void deleteField(FieldDTO fieldDTO);
 	
-	FieldDTO updateField(FieldDTO fieldDTO);
+	void updateField(FieldDTO fieldDTO);
 	
 	FieldDTO findFieldById(Long id);
 	

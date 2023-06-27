@@ -18,25 +18,24 @@ public class UserServiceImpl implements IUserService {
     return iUserDAO.findAll();
   }
 
-  public UserDTO addUser(UserDTO userDTO) {
-    return iUserDAO.addUser(userDTO);
+  @Override
+  public void addUser(UserDTO userDTO) {
+    iUserDAO.addUser(userDTO);
   }
 
   @Override
-  public UserDTO deleteUser(UserDTO userDTO) {
-    return iUserDAO.deleteUser(userDTO);
+  public void deleteUser(UserDTO userDTO) {
+    iUserDAO.deleteUser(userDTO);
   }
 
   @Override
-  public UserDTO updateUser(UserDTO userDTO) {
-    return iUserDAO.updateUser(userDTO);
+  public void updateUser(UserDTO userDTO) {
+    iUserDAO.updateUser(userDTO);
   }
 
   @Override
   public UserDTO findUserByCi(Long ci) {
     return iUserDAO.findUserByCi(ci);
   }
-
-
 
 }

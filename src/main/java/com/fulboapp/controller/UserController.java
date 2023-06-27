@@ -29,7 +29,7 @@ public class UserController {
    * Agrega un nuevo usuario.
    * 
    * @param userDTO
-   * @return
+   * @return objeto UserDTO agregado a la base de datos.
    */
   @PostMapping("/addUser")
   public UserDTO addUser(@RequestBody UserDTO userDTO) {
@@ -40,11 +40,22 @@ public class UserController {
    * Borra un usuario.
    * 
    * @param userDTO
-   * @return
+   * @return objeto UserDTO con datos vacios si se elimino correctamente.
    */
   @DeleteMapping("/deleteUser")
   public UserDTO deleteUser(@RequestBody UserDTO userDTO) {
     return iUserService.deleteUser(userDTO);
+  }
+  
+  /**
+   * Actualiza un usuario previamente cargado.
+   * 
+   * @param userDTO
+   * @return
+   */
+  @PutMapping("/updateUser")
+  public UserDTO updateUser(@RequestBody UserDTO userDTO) {
+    return iUserService.updateUser(userDTO);
   }
 
   /**
@@ -56,17 +67,6 @@ public class UserController {
   @GetMapping("/findUserByCi")
   public UserDTO findUserByCi(@RequestParam Long ci) {
     return iUserService.findUserByCi(ci);
-  }
-
-  /**
-   * Actualiza un usuario previamente cargado.
-   * 
-   * @param userDTO
-   * @return
-   */
-  @PutMapping("/updateUser")
-  public UserDTO updateUser(@RequestBody UserDTO userDTO) {
-    return iUserService.updateUser(userDTO);
   }
 
   /**

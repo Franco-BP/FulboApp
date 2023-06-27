@@ -37,6 +37,4 @@ public class UserServiceImpl implements IUserService {
     return iUserDAO.findUserByCi(ci);
   }
 
-
-
 }

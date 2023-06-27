@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,17 +19,26 @@ public class UserController {
   private IUserService iUserService;
 
   /**
+   * GET para consultar y leer 
+   * POST para crear 
+   * PUT para editar 
+   * DELETE para eliminar.
+   */
+
+  /**
    * Agrega un nuevo usuario.
+   * 
    * @param userDTO
    * @return
    */
-  @GetMapping("/addUser")
+  @PostMapping("/addUser")
   public UserDTO addUser(@RequestBody UserDTO userDTO) {
     return iUserService.addUser(userDTO);
   }
 
   /**
    * Borra un usuario.
+   * 
    * @param userDTO
    * @return
    */
@@ -39,6 +49,7 @@ public class UserController {
 
   /**
    * Busca un usario por CI.
+   * 
    * @param ci
    * @return
    */
@@ -49,6 +60,7 @@ public class UserController {
 
   /**
    * Actualiza un usuario previamente cargado.
+   * 
    * @param userDTO
    * @return
    */
@@ -59,6 +71,7 @@ public class UserController {
 
   /**
    * Lista de todos los usuarios.
+   * 
    * @return
    */
   @GetMapping("/getUserSubscriptionsCost")

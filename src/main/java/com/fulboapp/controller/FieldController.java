@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,24 +19,23 @@ public class FieldController {
 	
 	@GetMapping("/getListAllField")
 	public List<FieldDTO> getListAllField() {
+		// Por que UserController pide un objeto UserDTO para buscar todos los User
+		// Si no se va a usar para la busqueda?
 		return iFieldService.getListAllField();
 	}
 	
-	@PostMapping("/addField")
-	public void addField(@RequestBody FieldDTO fieldDTO) {
+	// Por que se usa el GetMapping si se esta haciendo un Post?
+	// Reconozco que no es void, pero aun asi es necesario declararlo como un get?
+	@GetMapping("/addField")
+	public FieldDTO addField(@RequestBody FieldDTO fieldDTO) {
 		// No entiendo por que el metodo en User debe devolver un DTO si solamente lo va a agregar.
 		// Seria lo mismo que en getListAllUser pero al reves.
-		iFieldService.addField(fieldDTO);
+		return iFieldService.addField(fieldDTO);
 	}
 	
-	@DeleteMapping("/deleteField")
-	public void deleteField(@RequestBody FieldDTO fieldDTO) {
-		iFieldService.addField(fieldDTO);
-	}
-	
-	@PutMapping("/updateField")
-	public void updateField(@RequestBody FieldDTO fieldDTO) {
-		iFieldService.updateField(fieldDTO);
+	@GetMapping("/deleteField")
+	public FieldDTO deleteField(@RequestBody FieldDTO fieldDTO) {
+		return iFieldService.addField(fieldDTO);
 	}
 	
 	@GetMapping("/findFieldByName")
@@ -57,4 +53,8 @@ public class FieldController {
 		return iFieldService.findByLocation(location);
 	}
 	
+	@GetMapping("/updateField")
+	public FieldDTO updateField(@RequestBody FieldDTO fieldDTO) {
+		return iFieldService.updateField(fieldDTO);
+	}
 }

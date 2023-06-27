@@ -16,7 +16,7 @@ import com.fulboapp.dto.FieldDTO;
 public class FieldDAOImpl implements IFieldDAO {
 
 	@Override
-	public void addField(FieldDTO fieldDTO) {
+	public FieldDTO addField(FieldDTO fieldDTO) {
 		Field field = new Field();
 		field.setCalendar(fieldDTO.getCalendar());
 		field.setId(fieldDTO.getId());
@@ -32,16 +32,19 @@ public class FieldDAOImpl implements IFieldDAO {
 		field.setOwner(company);
 
 		// SE LLAMA A LA BD Y SE GUARDA EL OBJETO FIELD
+		return fieldDTO;
 	}
 
 	@Override
-	public void deleteField(FieldDTO fieldDTO) {
+	public FieldDTO deleteField(FieldDTO fieldDTO) {
 		// SE LLAMA A LA BD Y SE BORRA EL OBJETO FIELD
+		return new FieldDTO();
 	}
 
 	@Override
-	public void updateField(FieldDTO fieldDTO) {
+	public FieldDTO updateField(FieldDTO fieldDTO) {
 		// SE LLAMA A LA BD Y SE HACE UN UPDATE
+		return new FieldDTO();
 	}
 
 	/**
@@ -73,8 +76,6 @@ public class FieldDAOImpl implements IFieldDAO {
 			companyDTO.setId(company.getId());
 			companyDTO.setPhoneNumber(company.getPhoneNumber());
 			fieldDTO.setOwner(companyDTO);
-		} else {
-			return null;	// Esta con warning porque todavia no implmento BD.
 		}
 
 		/*** Seria buena practica devolver un null si no se halla el field? ***/

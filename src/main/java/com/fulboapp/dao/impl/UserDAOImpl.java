@@ -24,7 +24,7 @@ public class UserDAOImpl implements IUserDAO {
   }
 
   @Override
-  public void addUser(UserDTO userDTO) {
+  public UserDTO addUser(UserDTO userDTO) {
     /**
      * En los DAO se pasa de DTOs a Entities para guardarlas en base de datos o de Entities a DTOs
      * para recibirlos.
@@ -37,22 +37,25 @@ public class UserDAOImpl implements IUserDAO {
     user.setPhoneNumber(userDTO.getPhoneNumber());
     user.setEmail(userDTO.getEmail());
     // ACA SE LLAMA A LA BD Y SE GUARDA EL OBJETO USER
+    return userDTO;
   }
 
   @Override
-  public void deleteUser(UserDTO user) {
+  public UserDTO deleteUser(UserDTO user) {
     // ACA SE LLAMA A LA BD Y SE BORRA EL OBJETO USER
+    return new UserDTO();
   }
 
   @Override
-  public void updateUser(UserDTO user) {
+  public UserDTO updateUser(UserDTO user) {
     // ACA SE LLAMA A LA BD Y SE HACE UN UPDATE EL OBJETO USER
+    return new UserDTO();
   }
 
   @Override
   public UserDTO findUserByCi(Long userCi) {
     UserDTO userDTO = new UserDTO();
-    userDTO.setCi(userCi);
+    userDTO.setIc(userCi);
     return userDTO;
   }
 

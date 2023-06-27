@@ -24,7 +24,7 @@ public class UserDTO implements Serializable {
 
   private String email;
 
-  private Long ci;
+  private Long ic;
 
   private Map<Long, MatchDTO> subscribedMatches = new HashMap<Long, MatchDTO>();
 
@@ -92,11 +92,11 @@ public class UserDTO implements Serializable {
     this.subscribedMatches = subscribedMatches;
   }
 
-  public Long getCi() {
-    return ci;
+  public Long getIc() {
+    return ic;
   }
 
-  public void setCi(Long ci) {
-    this.ci = ci;
+  public void setIc(Long ic) {
+    this.ic = ic;
   }
 }

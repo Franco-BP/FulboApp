@@ -21,18 +21,18 @@ public class FieldServiceImpl implements IFieldService {
 	}
 
 	@Override
-	public void addField(FieldDTO fieldDTO) {
-		iFieldDAO.addField(fieldDTO);
+	public FieldDTO addField(FieldDTO fieldDTO) {
+		return iFieldDAO.addField(fieldDTO);
 	}
 
 	@Override
-	public void deleteField(FieldDTO fieldDTO) {
-		iFieldDAO.deleteField(fieldDTO);
+	public FieldDTO deleteField(FieldDTO fieldDTO) {
+		return iFieldDAO.deleteField(fieldDTO);
 	}
 
 	@Override
-	public void updateField(FieldDTO fieldDTO) {
-		iFieldDAO.updateField(fieldDTO);
+	public FieldDTO updateField(FieldDTO fieldDTO) {
+		return iFieldDAO.updateField(fieldDTO);
 	}
 
 	@Override

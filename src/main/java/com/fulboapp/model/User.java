@@ -28,7 +28,7 @@ public class User implements Serializable {
 
   private String email;
 
-  private Long ci;
+  private Long ic;
 
   private Map<Long, Match> subscribedMatches = new HashMap<Long, Match>();
 
@@ -100,12 +100,12 @@ public class User implements Serializable {
     this.subscribedMatches = subscribedMatches;
   }
 
-  public Long getCi() {
-    return ci;
+  public Long getIc() {
+    return ic;
   }
 
-  public void setCi(Long ci) {
-    this.ci = ci;
+  public void setIc(Long ic) {
+    this.ic = ic;
   }
 
 

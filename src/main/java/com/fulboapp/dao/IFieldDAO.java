@@ -10,21 +10,21 @@ public interface IFieldDAO {
    *
    * @param field Objeto a agregar.
    */
-  void addField(FieldDTO fieldDTO);
+  FieldDTO addField(FieldDTO fieldDTO);
 
   /**
    * Elimina una cancha existente de la base de datos.
    *
    * @param field Objeto a actualizar.
    */
-  void deleteField(FieldDTO fieldDTO);
+  FieldDTO deleteField(FieldDTO fieldDTO);
 
   /**
    * Actualiza una cancha en la base de datos.
    *
    * @param field Objeto a eliminar.
    */
-  void updateField(FieldDTO fieldDTO);
+  FieldDTO updateField(FieldDTO fieldDTO);
   
   /**
    * Busca todas las canchas de la base de datos.

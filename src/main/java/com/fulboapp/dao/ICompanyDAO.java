@@ -1,20 +1,21 @@
 package com.fulboapp.dao;
 
 import java.util.List;
+
 import com.fulboapp.dto.CompanyDTO;
-import com.fulboapp.dto.FieldDTO;
 
 public interface ICompanyDAO {
 
-  void addCompany(CompanyDTO companyDTO);
+	CompanyDTO addCompany(CompanyDTO companyDTO);
 
-  void deleteCompany(CompanyDTO companyDTO);
+	CompanyDTO deleteCompany(CompanyDTO companyDTO);
 
-  void updateCompany(CompanyDTO companyDTO);
+	CompanyDTO updateCompany(CompanyDTO companyDTO);
 
-  CompanyDTO findCompany(Long companyId);
+	List<CompanyDTO> getListAllCompany();
 
-  List<CompanyDTO> findAll();
+	CompanyDTO findCompanyById(Long companyId);
 
-  List<FieldDTO> findFields(Long companyId);
+	List<CompanyDTO> findCompanyByName(String name);
+
 }

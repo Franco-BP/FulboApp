@@ -21,7 +21,7 @@ public class UserController {
   /**
    * GET para consultar y leer 
    * POST para crear 
-   * PUT para editar 
+   * PUT para editar / update / actualizar
    * DELETE para eliminar.
    */
 
@@ -43,8 +43,8 @@ public class UserController {
    * @return
    */
   @DeleteMapping("/deleteUser")
-  public UserDTO deleteUser(@RequestBody UserDTO userDTO) {
-    return iUserService.deleteUser(userDTO);
+  public void deleteUser(@RequestBody UserDTO userDTO) {
+    iUserService.deleteUser(userDTO);
   }
 
   /**

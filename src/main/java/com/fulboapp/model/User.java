@@ -1,48 +1,45 @@
 package com.fulboapp.model;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-public class User implements Serializable {
+@Entity
+@Table(name = "USUARIO")
+@PrimaryKeyJoinColumn(name = "USUARIO_ID")
+public class User {
 
-  /**
-   * 
-   */
-  private static final long serialVersionUID = 3719638096558536431L;
-
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "USUARIO_ID")
   private Long id;
 
+  @Column(name = "NOMBRE", length = 255)
   private String name;
 
+  @Column(name = "APELLIDO", length = 255)
   private String lastName;
 
+  @Column(name = "SONBRE_NOMBRE", length = 255)
   private String nickName;
 
+  @Column(name = "CIUDAD", length = 255)
   private String location;
 
+  @Column(name = "TELEFONO", length = 255)
   private String phoneNumber;
 
+  @Column(name = "EMAIL", length = 255)
   private String email;
 
-  private Long ic;
-
-  private Map<Long, Match> subscribedMatches = new HashMap<Long, Match>();
-
-  public String getFullName() {
-    return this.name + " " + this.lastName;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
+  @Column(name = "CI", length = 10)
+  private Long ci;
 
   public String getName() {
     return name;
@@ -92,21 +89,15 @@ public class User implements Serializable {
     this.email = email;
   }
 
-  public Map<Long, Match> getSubscribedMatches() {
-    return subscribedMatches;
+  public Long getCi() {
+    return ci;
   }
 
-  public void setSubscribedMatches(Map<Long, Match> subscribedMatches) {
-    this.subscribedMatches = subscribedMatches;
+  public void setCi(Long ci) {
+    this.ci = ci;
   }
 
-  public Long getIc() {
-    return ic;
-  }
-
-  public void setIc(Long ic) {
-    this.ic = ic;
-  }
+ 
 
 
 

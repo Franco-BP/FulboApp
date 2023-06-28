@@ -23,8 +23,8 @@ public class UserServiceImpl implements IUserService {
   }
 
   @Override
-  public UserDTO deleteUser(UserDTO userDTO) {
-    return iUserDAO.deleteUser(userDTO);
+  public void deleteUser(UserDTO userDTO) {
+    iUserDAO.deleteUser(userDTO);
   }
 
   @Override
@@ -34,7 +34,7 @@ public class UserServiceImpl implements IUserService {
 
   @Override
   public UserDTO findUserByCi(Long ci) {
-    return iUserDAO.findUserByCi(ci);
+    return iUserDAO.findByCi(ci);
   }
 
 

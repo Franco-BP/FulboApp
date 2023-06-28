@@ -16,9 +16,9 @@ public interface IUserDAO {
    * Elimina un usuario existente de la base de datos.
    *
    * @param user Objeto a actualizar.
-   * @return 
+   * @return
    */
-  UserDTO deleteUser(UserDTO user);
+  void deleteUser(UserDTO user);
 
   /**
    * Actualiza un usuario en la base de datos.
@@ -48,7 +48,7 @@ public interface IUserDAO {
    * @param userCi CI del usuario.
    * @return objeto IUserDAO o null si no hay coincidencias.
    */
-  UserDTO findUserByCi(Long userCi);
+  UserDTO findByCi(Long userCi);
 
 
 

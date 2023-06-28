@@ -1,8 +1,6 @@
 package com.fulboapp.dto;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.Data;
 
 @Data
@@ -24,9 +22,7 @@ public class UserDTO implements Serializable {
 
   private String email;
 
-  private Long ic;
-
-  private Map<Long, MatchDTO> subscribedMatches = new HashMap<Long, MatchDTO>();
+  private Long ci;
 
   public Long getId() {
     return id;
@@ -84,19 +80,11 @@ public class UserDTO implements Serializable {
     this.email = email;
   }
 
-  public Map<Long, MatchDTO> getSubscribedMatches() {
-    return subscribedMatches;
+  public Long getCi() {
+    return ci;
   }
 
-  public void setSubscribedMatches(Map<Long, MatchDTO> subscribedMatches) {
-    this.subscribedMatches = subscribedMatches;
-  }
-
-  public Long getIc() {
-    return ic;
-  }
-
-  public void setIc(Long ic) {
-    this.ic = ic;
+  public void setCi(Long ci) {
+    this.ci = ci;
   }
 }

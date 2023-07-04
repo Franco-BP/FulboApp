@@ -26,23 +26,23 @@ public class CompanyServiceImpl implements ICompanyService {
 	}
 
 	@Override
-	public CompanyDTO deleteCompany(CompanyDTO companyDTO) {
-		return iCompanyDAO.deleteCompany(companyDTO);
+	public void deleteCompany(CompanyDTO companyDTO) {
+		iCompanyDAO.deleteCompany(companyDTO);
 	}
 
 	@Override
 	public List<CompanyDTO> getListAllCompany() {
-		return iCompanyDAO.getListAllCompany();
+		return iCompanyDAO.findAll();
 	}
 
 	@Override
-	public CompanyDTO findCompanyById(Long id) {
-		return iCompanyDAO.findCompanyById(id);
+	public CompanyDTO findCompany(Integer id) {
+		return iCompanyDAO.findCompany(id);
 	}
 
 	@Override
-	public List<CompanyDTO> findCompanyByName(String name) {
-		return iCompanyDAO.findCompanyByName(name);
+	public List<CompanyDTO> findByName(String name) {
+		return iCompanyDAO.findByName(name);
 	}
 
 }

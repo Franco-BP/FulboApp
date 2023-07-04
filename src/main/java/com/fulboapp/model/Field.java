@@ -1,31 +1,36 @@
 package com.fulboapp.model;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-public class Field implements Serializable {
+@Entity
+@Table(name = "CANCHA")
+@PrimaryKeyJoinColumn(name = "CANCHA_ID")
+public class Field {
 
-	private static final long serialVersionUID = 1564378723654987865L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CANCHA_ID")
+	private Integer id;
 
-	private Long id;
-
+	@Column(name = "DUEÑO")
 	private Company owner;
 
+	@Column(name = "UBICACION", length = 255)
 	private String location;
 
+	@Column(name = "NOMBRE", length = 255)
 	private String name;
 
+	@Column(name = "CALENDARIO")
 	private Calendar calendar;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Company getOwner() {
 		return owner;

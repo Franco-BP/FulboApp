@@ -9,21 +9,13 @@ public class CompanyDTO implements Serializable {
 
 	private static final long serialVersionUID = 4356543432156478977L;
 
-	private Long id;
+	private Integer id;
 
 	private String companyName;
 
 	private String phoneNumber;
 
 	private String email;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getCompanyName() {
 		return companyName;

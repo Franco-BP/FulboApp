@@ -17,7 +17,7 @@ public interface IMatchService {
    * @param matchId id del partido a chequear.
    * @return null si esta lleno, true si tiene cupos.
    */
-  Boolean getAvailability(Long matchId);
+  Boolean getAvailability(MatchDTO matchDTO);
 
   /**
    * Metodo para chequear la disponibilidad de cupos para un jugador particular.
@@ -26,7 +26,7 @@ public interface IMatchService {
    * @param userId id del jugador a chequear.
    * @return null si esta lleno, false si el jugador esta repetido y true si tiene cupos.
    */
-  Boolean getAvailability(Long matchId, Long userId);
+  Boolean getAvailability(MatchDTO matchDTO, Long userId);
 
   /**
    * Metodo para obtener todos los partidos.
@@ -41,17 +41,20 @@ public interface IMatchService {
    * @param matchId - Long con el id del partido.
    * @return MatchDTO - null si no hay coincidencias.
    */
-  MatchDTO getMatch(Long matchId);
+  MatchDTO findMatch(Integer matchId);
 
   /**
    * Metodo para eliminar un partido
    * 
    * @param matchId - Long con el id del partido.
    */
-  void deleteMatch(Long matchId);
+  void deleteMatch(MatchDTO matchDTO);
 
-  // No estoy seguro de que sea necesario el update como servicio.
-  void updateMatch(Long matchId);
+  /**
+   * Metodo para actualizar un partido
+   * @param matchId - Long con el id del partido.
+   */
+  void updateMatch(MatchDTO matchDTO);
 
   /**
    * Metodo para agregar un jugador al partido.
@@ -59,7 +62,7 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param userId id del jugador.
    */
-  void addPlayer(Long matchId, Long userId);
+  void addPlayer(MatchDTO matchDTO, Long userId);
 
   /**
    * Metodo para eliminar un jugador de un partido.
@@ -67,7 +70,7 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param userId id del jugador
    */
-  void deletePlayer(Long matchId, Long userId);
+  void deletePlayer(MatchDTO matchDTO, Long userId);
 
   /**
    * Metodo para setear la fecha del partido.
@@ -75,5 +78,5 @@ public interface IMatchService {
    * @param matchId id del partido.
    * @param date fecha en formato "yyyy-MM-dd,kk-mm" donde las horas [kk] = (1->23)
    */
-  Boolean setDate(Long matchId, Date date);
+  Boolean setDate(MatchDTO matchDTO, Date date);
 }

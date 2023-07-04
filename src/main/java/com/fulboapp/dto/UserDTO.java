@@ -8,7 +8,7 @@ public class UserDTO implements Serializable {
 
   private static final long serialVersionUID = -3301003102446571278L;
 
-  private Long id;
+  private Integer id;
 
   private String name;
 
@@ -23,14 +23,6 @@ public class UserDTO implements Serializable {
   private String email;
 
   private Long ci;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
 
   public String getName() {
     return name;

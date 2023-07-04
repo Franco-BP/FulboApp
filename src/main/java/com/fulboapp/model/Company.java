@@ -1,29 +1,33 @@
 package com.fulboapp.model;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Data
-public class Company implements Serializable {
+@Entity
+@Table(name = "COMPANIA")
+@PrimaryKeyJoinColumn(name = "COMPANIA_ID")
+public class Company {
 
-	private static final long serialVersionUID = 2564796854326751275L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "COMPANIA_ID")
+	private Integer id;
 
-	private Long id;
-
+	@Column(name = "NOMBRE")
 	private String companyName;
 
+	@Column(name = "TELEFONO")
 	private String phoneNumber;
 
+	@Column(name = "EMAIL")
 	private String email;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getCompanyName() {
 		return companyName;

@@ -45,8 +45,8 @@ public class FieldController {
 	 * @return objeto FieldDTO con datos vacios si se elimina correctamente.
 	 */
 	@DeleteMapping("/deleteField")
-	public FieldDTO deleteField(@RequestBody FieldDTO fieldDTO) {
-		return iFieldService.addField(fieldDTO);
+	public void deleteField(@RequestBody FieldDTO fieldDTO) {
+		iFieldService.deleteField(fieldDTO);
 	}
 	
 	/**
@@ -64,9 +64,9 @@ public class FieldController {
 	 * @param name
 	 * @return objeto que coincida con el String ingresado.
 	 */
-	@GetMapping("/findFieldByName")
-	public FieldDTO findFieldByName(@RequestParam String name) {
-		return iFieldService.findFieldByName(name);
+	@GetMapping("/findByName")
+	public List<FieldDTO> findByName(@RequestParam String name) {
+		return iFieldService.findByName(name);
 	}
 	
 	/**
@@ -75,8 +75,8 @@ public class FieldController {
 	 * @return
 	 */
 	@GetMapping("/findFieldById")
-	public FieldDTO findFieldById(@RequestParam Long id) {
-		return iFieldService.findFieldById(id);
+	public FieldDTO findField(@RequestParam Integer id) {
+		return iFieldService.findField(id);
 	}
 	
 	/**

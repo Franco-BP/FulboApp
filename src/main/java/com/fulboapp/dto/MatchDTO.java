@@ -9,20 +9,11 @@ public class MatchDTO implements Serializable {
 
   private static final long serialVersionUID = 2467856389076854356L;
 
-  private Long id;
+  private Integer id;
 
   private UserDTO matchCreator;
 
   private Date matchDate;
-
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
 
   public UserDTO getMatchCreator() {
     return matchCreator;

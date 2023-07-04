@@ -17,7 +17,7 @@ public class FieldServiceImpl implements IFieldService {
 
 	@Override
 	public List<FieldDTO> getListAllField() {
-		return iFieldDAO.getListAllField();
+		return iFieldDAO.findAll();
 	}
 
 	@Override
@@ -26,8 +26,8 @@ public class FieldServiceImpl implements IFieldService {
 	}
 
 	@Override
-	public FieldDTO deleteField(FieldDTO fieldDTO) {
-		return iFieldDAO.deleteField(fieldDTO);
+	public void deleteField(FieldDTO fieldDTO) {
+		iFieldDAO.deleteField(fieldDTO);
 	}
 
 	@Override
@@ -36,13 +36,13 @@ public class FieldServiceImpl implements IFieldService {
 	}
 
 	@Override
-	public FieldDTO findFieldById(Long id) {
-		return iFieldDAO.findFieldById(id);
+	public FieldDTO findField(Integer id) {
+		return iFieldDAO.findField(id);
 	}
 
 	@Override
-	public FieldDTO findFieldByName(String name) {
-		return iFieldDAO.findFieldByName(name);
+	public List<FieldDTO> findByName(String name) {
+		return iFieldDAO.findByName(name);
 	}
 
 	@Override

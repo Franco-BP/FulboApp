@@ -17,7 +17,7 @@ public class UserDAOImpl implements IUserDAO {
   private IUserRepo repo;
 
   @Override
-  public UserDTO findUser(Long userID) {
+  public UserDTO findUser(Integer userID) {
     return new UserDTO();
   }
 

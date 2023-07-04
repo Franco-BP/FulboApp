@@ -9,7 +9,7 @@ public class FieldDTO implements Serializable {
 
 	private static final long serialVersionUID = 6436534623514231341L;
 
-	private Long id;
+	private Integer id;
 
 	private CompanyDTO owner;
 
@@ -18,14 +18,6 @@ public class FieldDTO implements Serializable {
 	private String name;
 	
 	private Calendar calendar;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public CompanyDTO getOwner() {
 		return owner;

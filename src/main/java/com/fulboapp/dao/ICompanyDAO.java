@@ -8,14 +8,14 @@ public interface ICompanyDAO {
 
 	CompanyDTO addCompany(CompanyDTO companyDTO);
 
-	CompanyDTO deleteCompany(CompanyDTO companyDTO);
+	void deleteCompany(CompanyDTO companyDTO);
 
 	CompanyDTO updateCompany(CompanyDTO companyDTO);
 
-	List<CompanyDTO> getListAllCompany();
+	List<CompanyDTO> findAll();
 
-	CompanyDTO findCompanyById(Long companyId);
+	CompanyDTO findCompany(Integer companyId);
 
-	List<CompanyDTO> findCompanyByName(String name);
+	List<CompanyDTO> findByName(String name);
 
 }

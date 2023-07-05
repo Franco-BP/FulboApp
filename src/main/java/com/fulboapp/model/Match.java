@@ -13,7 +13,7 @@ public class Match implements Serializable {
 
 	private static final Integer MAX_PLAYERS = 10;
 
-	private Long id;
+	private Integer id;
 
 	private User matchCreator;
 	

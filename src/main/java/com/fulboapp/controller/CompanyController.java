@@ -36,8 +36,8 @@ public class CompanyController {
 	 * @return	objeto CompanyDTO vacio si se elimino correctamente.
 	 */
 	@DeleteMapping("/deleteCompany")
-	public CompanyDTO deleteCompany(@RequestBody CompanyDTO companyDTO) {
-		return iCompanyService.deleteCompany(companyDTO);
+	public void deleteCompany(@RequestBody CompanyDTO companyDTO) {
+		iCompanyService.deleteCompany(companyDTO);
 	}
 	
 	/**
@@ -66,8 +66,8 @@ public class CompanyController {
 	 * @return objeto CompanyDTO que coincida.
 	 */
 	@GetMapping("/findCompanyById")
-	public CompanyDTO findCompanyById(@RequestParam Long id) {
-		return iCompanyService.findCompanyById(id);
+	public CompanyDTO findCompany(@RequestParam Integer id) {
+		return iCompanyService.findCompany(id);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class CompanyController {
 	 * @return	objeto CompanyDTO que coincida.
 	 */
 	@GetMapping("/findCompanyByName")
-	public List<CompanyDTO> findCompanyByName(@RequestParam String name) {
-		return iCompanyService.findCompanyByName(name);
+	public List<CompanyDTO> findByName(@RequestParam String name) {
+		return iCompanyService.findByName(name);
 	}
 }

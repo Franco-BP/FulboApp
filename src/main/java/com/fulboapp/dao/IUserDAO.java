@@ -33,7 +33,7 @@ public interface IUserDAO {
    * @param userID ID del usuario.
    * @return objeto IUserDAO o null si no hay coincidencias.
    */
-  UserDTO findUser(Long userId);
+  UserDTO findUser(Integer userId);
 
   /**
    * Busca todos los usuarios de la base de datos.

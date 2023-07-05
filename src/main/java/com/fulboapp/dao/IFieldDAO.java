@@ -17,7 +17,7 @@ public interface IFieldDAO {
    *
    * @param field Objeto a actualizar.
    */
-  FieldDTO deleteField(FieldDTO fieldDTO);
+  void deleteField(FieldDTO fieldDTO);
 
   /**
    * Actualiza una cancha en la base de datos.
@@ -31,7 +31,7 @@ public interface IFieldDAO {
    * 
    * @return List<FieldDTO> con las canchas encontradas.
    */
-  List<FieldDTO> getListAllField();
+  List<FieldDTO> findAll();
 
   /**
    * Busca una cancha con el ID ingresado.
@@ -39,7 +39,7 @@ public interface IFieldDAO {
    * @param fieldId ID de la cancha.
    * @return objeto FieldDTO o null si no hay coincidencias.
    */
-  FieldDTO findFieldById(Long fieldId);
+  FieldDTO findField(Integer fieldId);
   
   /**
    * Busca una cancha con el nombre ingresado.
@@ -47,7 +47,7 @@ public interface IFieldDAO {
    * @param fieldName Name de la cancha.
    * @return objeto FieldDTO o null si no hay coincidencias.
    */
-  FieldDTO findFieldByName(String name);
+  List<FieldDTO> findByName(String name);
 
   /**
    * Busca todas las canchas que tengan el ingreso como parte de su ubicacion.

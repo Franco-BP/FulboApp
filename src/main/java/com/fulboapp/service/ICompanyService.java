@@ -3,17 +3,21 @@ package com.fulboapp.service;
 import com.fulboapp.dto.CompanyDTO;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 public interface ICompanyService {
 	
 	public CompanyDTO addCompany(CompanyDTO companyDTO);
 	
 	public CompanyDTO updateCompany(CompanyDTO companyDTO);
 	
-	public CompanyDTO deleteCompany(CompanyDTO companyDTO);
+	public void deleteCompany(CompanyDTO companyDTO);
 	
 	public List<CompanyDTO> getListAllCompany();
 	
-	public CompanyDTO findCompanyById(Long id);
+	public CompanyDTO findCompany(Integer id);
 	
-	public List<CompanyDTO> findCompanyByName(String name);
+	@Query("select p from Compania p where p.nombre = :nombre")
+	public List<CompanyDTO> findByName(@Param("nombre") String name);
 }

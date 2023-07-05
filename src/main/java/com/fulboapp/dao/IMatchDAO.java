@@ -38,7 +38,7 @@ public interface IMatchDAO {
    * @param matchID - Long del ID.
    * @return objeto MatchDTO o null si no hay coincidencias.
    */
-  MatchDTO findMatch(Long matchID);
+  MatchDTO findMatch(Integer matchID);
 
   /**
    * Busca los partidos guardados.

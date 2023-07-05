@@ -13,30 +13,8 @@ public class MatchDAOImpl implements IMatchDAO {
 
   @Override
   public List<MatchDTO> getAll() {
-    List<MatchDTO> list = new ArrayList<MatchDTO>();
-    UserDTO userDTO = new UserDTO();
-    userDTO.setId(Long.valueOf(1));
-    userDTO.setName("Franco");
-
-    MatchDTO matchDTO = new MatchDTO();
-    matchDTO.setId(Long.valueOf(1));
-    matchDTO.setMatchCreator(userDTO);
-    matchDTO.setMatchDate(new Date());
-
-    MatchDTO matchDTO2 = new MatchDTO();
-    matchDTO2.setId(Long.valueOf(2));
-    matchDTO2.setMatchCreator(userDTO);
-    matchDTO2.setMatchDate(new Date());
-
-    MatchDTO matchDTO3 = new MatchDTO();
-    matchDTO3.setId(Long.valueOf(3));
-    matchDTO3.setMatchCreator(userDTO);
-    matchDTO3.setMatchDate(new Date());
-
-    list.add(matchDTO);
-    list.add(matchDTO2);
-    list.add(matchDTO3);
-    return list;
+	  // TODO Auto-generated method stub
+	  return null;
   }
 
   @Override
@@ -58,7 +36,7 @@ public class MatchDAOImpl implements IMatchDAO {
   }
 
   @Override
-  public MatchDTO findMatch(Long matchID) {
+  public MatchDTO findMatch(Integer matchID) {
     // TODO Auto-generated method stub
     return null;
   }
